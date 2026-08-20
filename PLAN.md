@@ -33,10 +33,10 @@ slice beats a complete skeleton.
 Read off the Google Maps listing and the owner of this pitch (2026-08-20),
 confirmed with staff at the pitch:
 
-- **Name:** Biblioteka Lounge, in all three languages (latin on the English
-  page; ბიბლიოთეკა ლაუნჯი / Библиотека Лаунж renderings to be confirmed with
-  the venue). A hookah bar; 4.8★ over 622 Google reviews; 30–80 GEL per
-  person.
+- **Name:** Biblioteka Lounge — written in Latin as a proper name on all
+  three language pages (the owner of the pitch decided against
+  transliteration, 2026-08-20; the venue may still overrule at the pitch). A
+  hookah bar; 4.8★ over 622 Google reviews; 30–80 GEL per person.
 - **The kitchen is Belarusian** — borscht, draniki, mangal meat — which no
   other lounge in Tbilisi claims: it is an identity hook, not a menu detail.
   There is a fireplace.
@@ -129,9 +129,17 @@ first screen under 150 KB before photos, photos lazy below the fold.**
 
 The menu snapshot is one committed file, `data/menu.ts`: category groups, each
 with items carrying `{ name: { ka, en, ru }, price }`, prices in GEL as
-integers (the source menu has no fractional prices; if one appears, this
-sentence is the thing to update). The snapshot records the date it was taken,
-and the page prints that date next to the link to the live menu.
+integers (the source menu has no fractional prices; the capture script throws
+if one appears, and this sentence is then the thing to update). The snapshot
+records the date it was taken, and the page prints that date next to the link
+to the live menu.
+
+The source publishes each name as one string mashing up to three languages;
+the capture splits it by letter majority per segment. A language the venue
+never wrote is filled from what exists — en, then ru, then ka — because the
+demo shows the venue's own words rather than hiding a dish it sells: roughly
+half the items have no Georgian and no English name at the source, and that
+gap is the owner's to close, not the demo's to invent.
 
 ## Invariants
 
@@ -156,7 +164,8 @@ the `finish-phase` skill:
    the point: the look is decided in the identity phase, on a mockup, not
    improvised in a build script. *(done)*
 3. **Menu snapshot and menu-preview** — capture the eat-me.online data into
-   `data/menu.ts`, render the preview.
+   `data/menu.ts`, render the preview. *(snapshot done; the preview render
+   waits on the approved identity)*
 4. **Identity, hero and atmosphere** — the design phase: the `page-designer`
    agent drafts the identity as a contact sheet, the owner approves it, the
    approved artboards become a Claude Design canvas (its id recorded in the
@@ -169,8 +178,10 @@ the `finish-phase` skill:
 
 ## Open questions, to be answered before or at the pitch
 
-- The venue's own rendering of its name in Georgian and Cyrillic — the
-  transliterations above are guesses until the owner confirms them.
+- Whether the venue wants its name transliterated anywhere — the demo writes
+  Biblioteka Lounge in Latin on every page until the owner says otherwise.
+- One photo each of a hookah and the beer taps — PLAN's atmosphere sentence
+  promises both and the public captures hold neither.
 - Which photos the owner is happy to see used — the demo borrows from their
   public Instagram and Google Maps; the finished site should get originals.
 - A native reader for the Georgian copy.
