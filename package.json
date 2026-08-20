@@ -1,0 +1,30 @@
+{
+  "name": "biblioteka-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "imports": {
+    "#shared/*": "./src/shared/*"
+  },
+  "scripts": {
+    "check": "npm run lint && npm run typecheck && npm run test:coverage",
+    "lint": "eslint --no-error-on-unmatched-pattern src scripts",
+    "lint:fix": "eslint --fix --no-error-on-unmatched-pattern src scripts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@typescript-eslint/parser": "^8.65.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.8.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}
