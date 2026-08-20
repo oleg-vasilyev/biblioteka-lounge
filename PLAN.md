@@ -45,11 +45,16 @@ confirmed with staff at the pitch:
 - **Phone:** +995 551 76 60 60.
 - **Instagram:** [@lounge.ge](https://www.instagram.com/lounge.ge/). The
   booking bot: [@Biblio_lounge_bot](https://t.me/Biblio_lounge_bot).
-- **Photos:** 18 unique frames under `design/photos-inbox/`, pulled from the
-  venue's public Instagram and Google Maps photos on 2026-08-20 — borrowed
-  for the demo, originals to be asked of the owner. The owner of this pitch
-  rates them "not their best", so the design must carry atmosphere even where
-  a photo is weak.
+- **Photos:** 11 usable frames under `design/photos-inbox/`, pulled from the
+  venue's public Instagram on 2026-08-20 and named by content (source post id
+  kept as suffix) — borrowed for the demo, originals to be asked of the owner.
+  Of the original 18 captures, four "Google Maps photos" turned out to be
+  reviewer avatars and three were partner-brand ad slides; all seven deleted.
+  The owner of this pitch rates the remainder "not their best", so the design
+  must carry atmosphere even where a photo is weak. The strongest: the
+  fireplace table (hero candidate), the two library murals, the borscht with
+  the typewriter, and the fortune cookie slide carrying the venue's own logo
+  (a fire in a brick hearth arch, "BIBLI●TEKA LOUNGE").
 
 ## Pages and languages
 
