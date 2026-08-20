@@ -1,13 +1,11 @@
 import { html, raw, type TrustedHtml } from "#shared/html/html.ts";
 import { assetPrefix, relativeHref } from "#shared/locale/locale-paths.ts";
-import { LOCALES, type Locale } from "#shared/locale/locales.ts";
+import { DEFAULT_LOCALE, LOCALES, type Locale } from "#shared/locale/locales.ts";
 import type { Copy } from "#shared/page/copy.en.ts";
 import { stylesheetFor } from "#shared/page/stylesheet.ts";
 import { fontsHref } from "#shared/page/webfonts.ts";
 import { assetUrl, canonicalUrl } from "#shared/site/site-address.ts";
 
-
-const DEFAULT_LOCALE: Locale = "en";
 
 const SOCIAL_IMAGE = "img/fireplace-hearth-wide-900.jpg";
 
@@ -59,10 +57,12 @@ const renderHeader = (locale: Locale, copy: Copy): TrustedHtml =>
   )}</nav>
 </div></header>`);
 
-const renderFooter = (copy: Copy, snapshotDate: string): TrustedHtml =>
+export type FooterFacts = { snapshotDate: string; instagramHandle: string };
+
+const renderFooter = (copy: Copy, facts: FooterFacts): TrustedHtml =>
   raw(html`<footer class="night foot"><div class="wrap">
-<p>${copy.menuSnapshotNoteBefore}${snapshotDate}${copy.menuSnapshotNoteAfter}</p>
-<p>${copy.photosBorrowedNote}</p>
+<p>${copy.menuSnapshotNoteBefore}${facts.snapshotDate}${copy.menuSnapshotNoteAfter}</p>
+<p>${copy.photosBorrowedNoteBefore}${facts.instagramHandle}${copy.photosBorrowedNoteAfter}</p>
 <p>${copy.georgianDraftNote}</p>
 </div></footer>`);
 
@@ -70,7 +70,7 @@ export const renderPageShell = (
   locale: Locale,
   copy: Copy,
   description: string,
-  snapshotDate: string,
+  facts: FooterFacts,
   body: string,
 ): string =>
   html`<!doctype html>
@@ -81,7 +81,7 @@ ${renderHead(locale, copy, description)}
 <body>
 ${renderHeader(locale, copy)}
 <main>${raw(body)}</main>
-${renderFooter(copy, snapshotDate)}
+${renderFooter(copy, facts)}
 </body>
 </html>
 `;

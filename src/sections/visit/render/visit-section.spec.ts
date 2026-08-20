@@ -63,6 +63,19 @@ describe("visit section", () => {
     expect(georgian).toContain('<span class="vk">[e:ტელეფონი]</span>');
   });
 
+  it("routes every venue fact through the escaper, markup characters and all", () => {
+    const page = renderVisitSection(copyIn("en"), {
+      ...venue,
+      phoneDisplay: '+995 <b>551</b> & "76"',
+      instagramHandle: '@lounge.ge<script>&"',
+      mapsUrl: 'https://maps.test/?q=a&b="c"<d>',
+    });
+
+    expect(page).toContain('[e:+995 <b>551</b> & "76"]');
+    expect(page).toContain('[e:@lounge.ge<script>&"]');
+    expect(page).toContain('href="[e:https://maps.test/?q=a&b="c"<d>]"');
+  });
+
   it("repeats the booking call to action at the foot of the page", () => {
     expect(renderVisitSection(copyIn("ru"), venue)).toContain(
       '<a class="btn" href="[e:https://t.me/Biblio_lounge_bot]">[e:Забронировать стол — Telegram]</a>',

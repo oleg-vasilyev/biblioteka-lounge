@@ -1,7 +1,5 @@
-import type { Locale } from "#shared/locale/locales.ts";
+import { DEFAULT_LOCALE, type Locale } from "#shared/locale/locales.ts";
 
-
-const DEFAULT_LOCALE: Locale = "en";
 
 export const localeDirectory = (locale: Locale): string => {
   switch (locale) {

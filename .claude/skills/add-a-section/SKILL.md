@@ -41,6 +41,12 @@ read alone in an editor tab: `menu-preview-section.ts`, not `section.ts`.
 
 ## Rules that bite here
 
+- **Copy that already exists in an approved mockup is extracted, never
+  retyped.** Write a throwaway script that reads the panels and emits the
+  three tables. Georgian and the non-breaking spaces before every em dash do
+  not survive a human transcription: the one line typed by hand in the
+  identity phase came out as `თანხპმამდე` for `თანხმობამდე`, and only a diff
+  against the panel caught it.
 - **Copy is a parameter, never an import** — render functions take
   `copy: Copy`; only the build script resolves a locale.
 - **Copy interpolates, never decides** — a choice between two phrasings is a

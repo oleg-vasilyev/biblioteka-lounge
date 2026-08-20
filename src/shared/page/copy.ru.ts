@@ -16,6 +16,7 @@ export const copy: Copy = {
   },
   menuSnapshotNoteBefore: "Цены в меню\u00a0\u2014 снимок от ",
   menuSnapshotNoteAfter: " из меню самого заведения.",
-  photosBorrowedNote: "Фото взяты из Instagram @lounge.ge\u00a0\u2014 до согласия владельца.",
+  photosBorrowedNoteBefore: "Фото взяты из Instagram ",
+  photosBorrowedNoteAfter: "\u00a0\u2014 до согласия владельца.",
   georgianDraftNote: "Грузинский текст\u00a0\u2014 черновик, ждёт носителя языка.",
 };

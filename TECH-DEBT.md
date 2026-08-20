@@ -29,6 +29,28 @@ is pitched in person. **Trigger:** the owner says yes to finishing the site.
 Then add a cookie-less beacon (GoatCounter, as in the reference project) and a
 Search Console property, and record both dashboards in README.
 
+## The opening times are written out nine times
+
+`14:00`, `02:00` and `03:00` are venue facts, but they sit inside sentences —
+hero's one-line summary and visit's two rows, in three languages each. Only a
+human diff keeps the nine agreeing, and the compiler cannot help: a changed
+closing hour is nine hand edits. Splitting them out means four copy fragments
+per sentence in every language, which reads worse than it protects while the
+hours are a fixed snapshot. **Trigger:** the venue changes its hours, or the
+first phase that makes them conditional (a holiday note, a seasonal garden).
+Then the times move into `data/venue.ts` and the copy interpolates them, as
+the price and the snapshot date already do.
+
+## The drawings carry the palette as literals
+
+`brand-mark.ts`, `hearth-drawing.ts`, `mural-drawing.ts` and `favicon.svg`
+hard-code `#C75B54` and `#8F2430`, which also exist as `--ember` and
+`--oxblood` in the stylesheet — and the drawing specs assert the literals, so
+the split is cemented. SVG cannot read a CSS variable it was not given, and
+`currentColor` only carries one of them. **Trigger:** the first palette change
+after the pitch. Then the drawings take their colours as arguments and the
+specs assert what was passed in.
+
 ## Nothing regenerates the photo derivatives
 
 The three frames the page ships (`assets/img/`) were cropped and resized by

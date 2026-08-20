@@ -13,7 +13,8 @@ export const copy = {
   },
   menuSnapshotNoteBefore: "Menu prices are a snapshot of ",
   menuSnapshotNoteAfter: " from the venue’s own menu.",
-  photosBorrowedNote: "Photos are borrowed from @lounge.ge on Instagram, pending the owner’s blessing.",
+  photosBorrowedNoteBefore: "Photos are borrowed from ",
+  photosBorrowedNoteAfter: " on Instagram, pending the owner\u2019s blessing.",
   georgianDraftNote: "Georgian text is machine-drafted and awaits a native reader.",
 };
 

@@ -15,6 +15,7 @@ import {
 import { copyIn as visitCopy } from "#visit/copy.ts";
 import { renderVisitSection } from "#visit/render/visit-section.ts";
 import { formatSnapshotDate } from "#shared/dates/snapshot-date.ts";
+import { escapeHtml } from "#shared/html/escape.ts";
 import { assetPrefix, localeDirectory } from "#shared/locale/locale-paths.ts";
 import { LOCALES, type Locale } from "#shared/locale/locales.ts";
 import { copyIn as pageCopy } from "#shared/page/copy.ts";
@@ -72,7 +73,7 @@ const buildPage = (locale: Locale): void => {
     locale,
     pageCopy(locale),
     heroCopy(locale).tagline,
-    formatSnapshotDate(MENU_CAPTURED_ON),
+    { snapshotDate: formatSnapshotDate(MENU_CAPTURED_ON), instagramHandle: VENUE.instagramHandle },
     renderBody(locale),
   );
 
@@ -85,7 +86,9 @@ const copyAssets = (): void => {
 };
 
 const writeSitemap = (): void => {
-  const urls = LOCALES.map((locale) => `  <url><loc>${canonicalUrl(locale)}</loc></url>`).join("\n");
+  const urls = LOCALES.map(
+    (locale) => `  <url><loc>${escapeHtml(canonicalUrl(locale))}</loc></url>`,
+  ).join("\n");
 
   writeFileSync(
     join(OUTPUT_ROOT, "sitemap.xml"),

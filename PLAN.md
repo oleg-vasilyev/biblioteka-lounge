@@ -89,8 +89,12 @@ because they are decisions, not details:
    every other day. One neutral line covers both regimes — closing at 02:00,
    Fri–Sat at 03:00 — and stays true whenever it is read. The street belongs
    here too: the first screen answers *where* as well as *what*.
-2. **atmosphere** — three to five photos with one sentence each: the books, the
-   hookah, the beer taps. Also from their Instagram.
+2. **atmosphere** — four frames, one concrete sentence each: the hearth, the
+   borscht, the shelf of board games, and the wall mural **drawn rather than
+   photographed**. The public captures hold no hookah and no beer taps, and
+   the one mural photograph was too soft to print — so the section carries
+   what the venue actually gave, and draws what it did not. A photograph
+   whose caption cannot be true of it is replaced, never re-captioned.
 3. **menu-preview** — a handful of signature items per category group with
    prices in GEL, and one link to the full live menu on eat-me.online. The
    groups follow what the place is actually for: hookah first, the
