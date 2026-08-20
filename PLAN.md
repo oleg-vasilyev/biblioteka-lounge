@@ -154,7 +154,7 @@ the `finish-phase` skill:
    page shell, the language switcher, a complete but deliberately unstyled
    page deploying to GitHub Pages. The freshness gate lands here. Unstyled is
    the point: the look is decided in the identity phase, on a mockup, not
-   improvised in a build script.
+   improvised in a build script. *(done)*
 3. **Menu snapshot and menu-preview** — capture the eat-me.online data into
    `data/menu.ts`, render the preview.
 4. **Identity, hero and atmosphere** — the design phase: the `page-designer`

@@ -18,14 +18,13 @@ Node ≥ 24 (the scripts are TypeScript that Node runs directly).
 
 | Script | What it does |
 |---|---|
-| `npm run check` | lint, types, tests with coverage — the everything command |
+| `npm run check` | lint, types, tests with coverage, docs freshness — the everything command |
+| `npm run build` | render every locale's page into `docs/` |
+| `npm run docs:check` | rebuild, prove `docs/` matches, hold CLAUDE.md to its line budget |
 | `npm run lint` | ESLint over `src/` and `scripts/` |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run test` | vitest, specs beside the code |
 | `npm run test:coverage` | the suite under a 70% floor |
-
-The build script (`npm run build`, rendering `docs/`) lands in the next phase;
-until then `docs/` is empty and the table above is the whole surface.
 
 ## Layout
 

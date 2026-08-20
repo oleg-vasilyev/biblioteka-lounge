@@ -10,7 +10,9 @@
     "#shared/*": "./src/shared/*"
   },
   "scripts": {
-    "check": "npm run lint && npm run typecheck && npm run test:coverage",
+    "check": "npm run lint && npm run typecheck && npm run test:coverage && npm run docs:check",
+    "build": "node scripts/build-site.ts",
+    "docs:check": "npm run build && node scripts/check-docs-fresh.ts && node scripts/check-claude-md-budget.ts",
     "lint": "eslint --no-error-on-unmatched-pattern src scripts",
     "lint:fix": "eslint --fix --no-error-on-unmatched-pattern src scripts",
     "typecheck": "tsc --noEmit",

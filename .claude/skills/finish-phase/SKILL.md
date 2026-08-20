@@ -48,7 +48,11 @@ dropped.
 
 Open the built pages in a real browser viewport at phone width (375px) and
 desktop (1280px), **all three languages** — the Georgian page is the one that
-breaks first: longer words, different script metrics. The output is **specific
+breaks first: longer words, different script metrics. On this machine the
+trustworthy viewport is a 375px iframe harness screenshotted by headless Edge:
+the app's preview pane reports zero-width layout when its panel is not
+displayed, and a bare `--window-size=375` silently lays out at Edge's ~500px
+minimum — both lie without failing. The output is **specific
 claims, not a verdict** — if you cannot name what you saw on a page, you did
 not look at it. Ask of each:
 

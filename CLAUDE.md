@@ -24,8 +24,7 @@ The dividing question: *would this still be true if the site were rebuilt in
 another stack?* If yes it belongs in `PLAN.md`. **A fact lives where its reason
 lives; the other file gets a pointer, never a retelling.** This file has a line
 budget of **120 lines** — when a new rule pushes it over, move an old paragraph
-into the skill it belongs to instead of raising the number. (The budget is
-enforced by hand until the build phase adds `docs:check`.)
+into the skill it belongs to instead of raising the number. (`docs:check` enforces the budget.)
 
 ## Code style
 
