@@ -217,14 +217,12 @@ Read `references/pro-rules.md` and run through its canonical Pre-Delivery Checkl
 
 ## Local note (Biblioteka repository — not upstream)
 
-This machine has no Python, so every `search.py` invocation above is
-unavailable. The catalog itself is plain CSV, so **query it directly
-instead**: `Grep` over `data/landing.csv` (page patterns), `data/styles.csv`
-(visual styles), `data/colors.csv` (palettes), `data/typography.csv` (font
-pairings), `data/ux-guidelines.csv` (the 119 rules), `data/icons.csv`, and
-`data/stacks/html-tailwind.csv` when a stack answer is needed — this site is
-hand-written HTML/CSS, so read Tailwind class advice as plain-CSS advice. The
-two references files load as written. Everything else in this skill — the
-priority table, the query discipline of one dominant intent, verifying fit
-before applying — holds unchanged. PROVENANCE.md says what was vendored and
-how to update it.
+Python 3.12 is installed user-level, so the search tool above runs as
+upstream intends. In a shell whose PATH predates the install, `python`
+resolves to the Microsoft Store stub — invoke
+`$LOCALAPPDATA/Programs/Python/Python312/python.exe` by full path instead.
+`${CLAUDE_PLUGIN_ROOT}` is a plugin-context variable and is unset here: the
+script lives at `.claude/skills/ui-ux-pro-max/scripts/search.py` relative to
+the repository root. The catalog is plain CSV under `data/`, so a quick
+single fact can also be read with Grep directly. PROVENANCE.md says what was
+vendored and how to update it.
