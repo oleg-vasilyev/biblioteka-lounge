@@ -28,6 +28,29 @@ to finish the site for a symbolic price, payable as a bar deposit. The demo is
 the argument, so it must *look finished* even where it is shallow — a beautiful
 slice beats a complete skeleton.
 
+## The venue, on record
+
+Read off the Google Maps listing and the owner of this pitch (2026-08-20),
+confirmed with staff at the pitch:
+
+- **Name:** Biblioteka Lounge, in all three languages (latin on the English
+  page; ბიბლიოთეკა ლაუნჯი / Библиотека Лаунж renderings to be confirmed with
+  the venue). A hookah bar; 4.8★ over 622 Google reviews; 30–80 GEL per
+  person.
+- **The kitchen is Belarusian** — borscht, draniki, mangal meat — which no
+  other lounge in Tbilisi claims: it is an identity hook, not a menu detail.
+  There is a fireplace.
+- **Address:** Aleksandre Abasheli St 1, Tbilisi (Plus code PQ47+9M).
+- **Hours:** Mon–Thu and Sun 14:00–02:00, Fri–Sat 14:00–03:00.
+- **Phone:** +995 551 76 60 60.
+- **Instagram:** [@lounge.ge](https://www.instagram.com/lounge.ge/). The
+  booking bot: [@Biblio_lounge_bot](https://t.me/Biblio_lounge_bot).
+- **Photos:** 18 unique frames under `design/photos-inbox/`, pulled from the
+  venue's public Instagram and Google Maps photos on 2026-08-20 — borrowed
+  for the demo, originals to be asked of the owner. The owner of this pitch
+  rates them "not their best", so the design must carry atmosphere even where
+  a photo is weak.
+
 ## Pages and languages
 
 One page, three languages, each a full static copy:
@@ -59,9 +82,10 @@ because they are decisions, not details:
    and a booking button. Photo from the venue's own Instagram.
 2. **atmosphere** — three to five photos with one sentence each: the books, the
    hookah, the beer taps. Also from their Instagram.
-3. **menu-preview** — a handful of signature items per category group (hookah,
-   kitchen, bar) with prices in GEL, and one link to the full live menu on
-   eat-me.online. **The preview is a dated snapshot, and says so on the page.**
+3. **menu-preview** — a handful of signature items per category group with
+   prices in GEL, and one link to the full live menu on eat-me.online. The
+   groups follow what the place is actually for: hookah first, the
+   Belarusian kitchen (borscht, draniki, mangal meat), then the bar. **The preview is a dated snapshot, and says so on the page.**
    The data is a committed file under `data/`, captured from the public
    eat-me.online menu in its own phase; nothing fetches at build time and
    nothing promises to stay in sync.
@@ -140,10 +164,10 @@ the `finish-phase` skill:
 
 ## Open questions, to be answered before or at the pitch
 
-- Exact opening hours and phone — read off the Google Maps listing, confirmed
-  with staff on Friday.
+- The venue's own rendering of its name in Georgian and Cyrillic — the
+  transliterations above are guesses until the owner confirms them.
 - Which photos the owner is happy to see used — the demo borrows from their
-  public Instagram; the finished site should get originals.
+  public Instagram and Google Maps; the finished site should get originals.
 - A native reader for the Georgian copy.
 - Domain: `.ge` registration is the owner's purchase (~30–50 GEL/year); until
   then the site lives at a `github.io` address.
