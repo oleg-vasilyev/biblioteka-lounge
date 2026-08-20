@@ -11,6 +11,8 @@ This file is loaded before every session, so it holds only what has to be known
 | Writing or changing any document | `write-a-doc` skill |
 | Writing a commit message | `write-a-commit` skill |
 | Reviewing a phase's diff | `phase-reviewer` agent |
+| A mockup for anything a visitor will see, before render code | `page-designer` agent |
+| Any visual decision — palette, type, layout, accessibility | `ui-ux-pro-max` skill |
 
 Four documents, one job each: **README.md** — what this is and how to run it.
 **PLAN.md** — what the site is and why: content, languages, data, constraints.

@@ -34,3 +34,12 @@ Search Console property, and record both dashboards in README.
 CLAUDE.md's line budget, the freshness of `docs/`, and cross-document links
 are enforced by hand until `scripts/` exist. **Trigger:** the build-pipeline
 phase (next) — it owes a `docs:check` script wired into `npm run check`.
+
+## The design catalog's search tool cannot run on this machine
+
+The vendored `ui-ux-pro-max` skill ships a Python search tool over its CSV
+catalog, and this machine has no Python — so the skill's Local note routes
+queries straight at the CSVs with Grep, which loses ranking but loses no
+data. **Trigger:** the first design phase where grepping the catalog visibly
+costs more than it answers — then install Python 3 (a user-level install,
+asked for first) and use `scripts/search.py` as upstream intends.

@@ -34,6 +34,8 @@ sequenceDiagram
     autonumber
     actor U as Owner of the pitch
     participant C as Claude Code, the AI developer
+    participant P as page-designer, the design agent
+    participant D as Claude Design, the canvas
     participant K as Project skills, .claude/skills
     participant H as Auto-linter, fires on its own
     participant R as phase-reviewer, a second AI agent
@@ -42,7 +44,7 @@ sequenceDiagram
     rect rgb(254, 249, 231)
     note over U,K: Stage 1. Framing
     U->>C: the change, in the owner's own words
-    C->>C: CLAUDE.md is in context; PLAN.md and TECH-DEBT.md are one link away
+    C->>C: CLAUDE.md is in context — PLAN.md and TECH-DEBT.md are one link away
     C->>C: a task that trips a debt entry's trigger takes that entry into scope
     opt the description leaves questions
         C->>U: every question at once, before any work
@@ -50,6 +52,15 @@ sequenceDiagram
     end
     C->>U: the size of the phase in one line
     U-->>C: agreed, or cut it down
+    opt the change affects what a visitor sees
+        C->>P: the page-designer agent — the requirements, in words
+        P->>K: the ui-ux-pro-max catalog — pattern, palette, type, the priority rules
+        P->>D: read the design canvas, once the identity phase has created it
+        P->>P: name the cases the design must survive, then draw every one, then look
+        P-->>C: the contact sheet, the committed cases, the decisions with numbers
+        C->>U: the contact sheet for approval — everything to compare, in one view
+        U-->>C: approved, or changes
+    end
     C->>K: add-a-section and write-a-spec, before the first file
     K-->>C: the folder shape, the copy rules, the spec standard
     C->>C: freeze the signatures that cross a layer, in one short note
@@ -92,13 +103,14 @@ sequenceDiagram
         C->>C: specific claims, not a verdict — name what was seen on each
         C->>U: a screenshot of anything that is taste rather than defect
         U-->>C: decided
+        C->>D: push what actually shipped back onto the canvas, so it never lies
     end
     end
 
     rect rgb(253, 242, 248)
     note over C,K: Stage 6. Retrospective and documents
     C->>K: the retrospective questions from finish-phase
-    C->>C: count the rework and the repeated runs; land each lesson as a rule
+    C->>C: count the rework and the repeated runs, land each lesson as a rule
     C->>K: write-a-doc — every fact one home, CLAUDE.md under its budget
     C->>C: update README, PLAN, TECH-DEBT — whatever the phase owes
     end
@@ -119,10 +131,6 @@ sequenceDiagram
   a static demo deploys from `main` on every push; versioning the site would
   version nothing a visitor can name. [TECH-DEBT.md](TECH-DEBT.md) holds the
   triggers that would bring the missing gates back.
-- **The mockup stage with a designer subagent** — the look gate (stage 5) does
-  that job while the page is one screen; a phase that redesigns the whole page
-  should resurrect the contact-sheet idea: draw the variants, show them side
-  by side, let the owner pick before code is written.
 - **CI** — the local gates are the gate, as the reference's server deploy also
   trusts the local hook first. CI returns when the repository goes public on
   GitHub, in the launch phase.

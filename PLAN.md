@@ -122,12 +122,17 @@ the `finish-phase` skill:
 
 1. **Shell** — this repository: documents, configs, workflow. *(done)*
 2. **Build pipeline and page skeleton** — `scripts/build-site.ts`, the shared
-   page shell, the language switcher, an empty-but-styled page deploying to
-   GitHub Pages. The freshness gate lands here.
+   page shell, the language switcher, a complete but deliberately unstyled
+   page deploying to GitHub Pages. The freshness gate lands here. Unstyled is
+   the point: the look is decided in the identity phase, on a mockup, not
+   improvised in a build script.
 3. **Menu snapshot and menu-preview** — capture the eat-me.online data into
    `data/menu.ts`, render the preview.
-4. **Hero and atmosphere** — photos, the dark visual identity, the five-second
-   screen.
+4. **Identity, hero and atmosphere** — the design phase: the `page-designer`
+   agent drafts the identity as a contact sheet, the owner approves it, the
+   approved artboards become a Claude Design canvas (its id recorded in the
+   agent file), and only then the render code for the five-second screen is
+   written against the approved picture.
 5. **Visit and booking** — hours, map, Telegram deep link, phone.
 6. **Meta and launch** — OG tags, hreflang, favicon, sitemap, the GitHub
    repository and Pages switch, a full three-language look pass on a real
