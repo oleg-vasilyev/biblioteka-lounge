@@ -45,7 +45,7 @@ confirmed with staff at the pitch:
 - **Phone:** +995 551 76 60 60.
 - **Instagram:** [@lounge.ge](https://www.instagram.com/lounge.ge/). The
   booking bot: [@Biblio_lounge_bot](https://t.me/Biblio_lounge_bot).
-- **Photos:** 11 usable frames under `design/photos-inbox/`, pulled from the
+- **Photos:** 13 usable frames under `design/photos-inbox/`, pulled from the
   venue's public Instagram on 2026-08-20 and named by content (source post id
   kept as suffix) — borrowed for the demo, originals to be asked of the owner.
   Of the original 18 captures, four "Google Maps photos" turned out to be
