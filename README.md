@@ -12,6 +12,8 @@ rendered by a TypeScript build script into `docs/`, which is committed and
 served by GitHub Pages straight off `main`. A push is the whole deploy: no
 workflow, no second branch, no server.
 
+**Live:** <https://oleg-vasilyev.github.io/biblioteka-lounge/>
+
 ## Running it
 
 Node ≥ 24 (the scripts are TypeScript that Node runs directly).
@@ -32,7 +34,9 @@ Node ≥ 24 (the scripts are TypeScript that Node runs directly).
 src/sections/   one deletable folder per page section, copy in three languages
 src/shared/     html assembly, locale plumbing, the page shell
 scripts/        the build and every other thing that touches a file
-data/           committed data snapshots (the menu)
+data/           committed data snapshots (the menu, the venue's own facts)
+assets/         what the build copies verbatim: photos, the icon, robots.txt
+design/         the approved mockups and the design system they came from
 docs/           the built site — generated, committed, served
 ```
 

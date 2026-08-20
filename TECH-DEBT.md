@@ -28,3 +28,13 @@ No analytics, so "does anyone arrive" is unanswerable — fine for a demo that
 is pitched in person. **Trigger:** the owner says yes to finishing the site.
 Then add a cookie-less beacon (GoatCounter, as in the reference project) and a
 Search Console property, and record both dashboards in README.
+
+## Nothing regenerates the photo derivatives
+
+The three frames the page ships (`assets/img/`) were cropped and resized by
+hand from `design/photos-inbox/`, during the design rounds, and the build only
+copies them. So a new photograph cannot join the page by dropping a file in:
+somebody has to repeat a crop nothing records. **Trigger:** the first frame
+the owner supplies himself. Then `scripts/` owes a derivative step — long edge
+and target weight named in one place, the crop recorded beside the output.
+

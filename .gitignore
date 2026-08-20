@@ -1,2 +1,4 @@
 node_modules/
 reports/
+design/claude-design/rev/
+design/claude-design/harness.html

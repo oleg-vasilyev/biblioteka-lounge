@@ -14,6 +14,8 @@ export const localeDirectory = (locale: Locale): string => {
   }
 };
 
+export const assetPrefix = (from: Locale): string => (from === DEFAULT_LOCALE ? "" : "../");
+
 export const relativeHref = (from: Locale, to: Locale): string => {
   const stepUpFromOwnDirectory = from === DEFAULT_LOCALE ? "" : "../";
   const target = localeDirectory(to);

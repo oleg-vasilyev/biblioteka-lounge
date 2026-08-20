@@ -183,7 +183,7 @@ const IMPURE = ["node:*"];
 
 // Every section folder under src/sections/. The add-a-section skill appends
 // here and to package.json's imports in the same change.
-const SECTIONS = [];
+const SECTIONS = ["hero", "atmosphere", "menu-preview", "visit"];
 
 const otherSections = (self) =>
   SECTIONS.filter((name) => name !== self).flatMap((name) => [

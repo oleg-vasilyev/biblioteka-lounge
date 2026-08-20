@@ -83,8 +83,12 @@ Each section is a deletable folder under `src/sections/` (the shape is
 [CLAUDE.md](CLAUDE.md#architecture)'s subject). Content sources are named here
 because they are decisions, not details:
 
-1. **hero** — name, one line of identity, one full-bleed photo, hours-tonight
-   and a booking button. Photo from the venue's own Instagram.
+1. **hero** — name, one line of identity, the street, the hours and a booking
+   button. **The hours line may never say "tonight":** the page is built once
+   and read with scripts off, so a page that names a weekday state is wrong on
+   every other day. One neutral line covers both regimes — closing at 02:00,
+   Fri–Sat at 03:00 — and stays true whenever it is read. The street belongs
+   here too: the first screen answers *where* as well as *what*.
 2. **atmosphere** — three to five photos with one sentence each: the books, the
    hookah, the beer taps. Also from their Instagram.
 3. **menu-preview** — a handful of signature items per category group with
@@ -164,17 +168,34 @@ the `finish-phase` skill:
    the point: the look is decided in the identity phase, on a mockup, not
    improvised in a build script. *(done)*
 3. **Menu snapshot and menu-preview** — capture the eat-me.online data into
-   `data/menu.ts`, render the preview. *(snapshot done; the preview render
-   waits on the approved identity)*
-4. **Identity, hero and atmosphere** — the design phase: the `page-designer`
-   agent drafts the identity as a contact sheet, the owner approves it, the
-   approved artboards become a Claude Design canvas (its id recorded in the
-   agent file), and only then the render code for the five-second screen is
-   written against the approved picture.
-5. **Visit and booking** — hours, map, Telegram deep link, phone.
+   `data/menu.ts`, render the preview. *(done)*
+4. **Identity, hero and atmosphere** — the design phase: four rounds of
+   `page-designer` against an independent `design-reviewer`, then the render
+   code written against the approved panels. *(done)*
+5. **Visit and booking** — hours, map, Telegram deep link, phone. *(done)*
 6. **Meta and launch** — OG tags, hreflang, favicon, sitemap, the GitHub
    repository and Pages switch, a full three-language look pass on a real
-   phone.
+   phone. *(done, bar the owner's own phone)*
+
+The site is live at
+<https://oleg-vasilyev.github.io/biblioteka-lounge/>, served from `docs/` on
+`main`. A `.ge` domain stays the owner's purchase.
+
+## What the identity decided, and why it is not a photograph
+
+The five-second screen is **a drawing, not a photo**. Four review rounds
+killed every photographic hero: the venue's own fireplace frame carries a
+nutcracker, a red candle and a festive tablecloth — it reads as December, and
+the pitch is in August. The authored hearth (a brick ring, logs, a sketched
+flame, a shelf of spines above it) has no season, weighs nothing, and repeats
+the logo's own device at full size. The fireplace photograph moved into
+atmosphere under a caption that says outright it was a December evening.
+
+Two rules the rounds turned into constraints, both recorded above: the hours
+line may never say "tonight", and the street belongs on the first screen. The
+webfont budget is the third: a page loads only the alphabets its own copy
+reads, which is why the English page never fetches the Georgian face and the
+lari sign is left to the system stack.
 
 ## Open questions, to be answered before or at the pitch
 

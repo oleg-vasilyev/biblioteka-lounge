@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { localeDirectory, relativeHref } from "#shared/locale/locale-paths.ts";
+import { assetPrefix, localeDirectory, relativeHref } from "#shared/locale/locale-paths.ts";
 
 
 describe("locale paths", () => {
@@ -19,5 +19,16 @@ describe("locale paths", () => {
     expect(relativeHref("ru", "en")).toBe("../");
     expect(relativeHref("ru", "ka")).toBe("../ka/");
     expect(relativeHref("ru", "ru")).toBe("../ru/");
+  });
+});
+
+describe("assetPrefix", () => {
+  it("reaches the shared asset folder from the default page without stepping up", () => {
+    expect(assetPrefix("en")).toBe("");
+  });
+
+  it("steps up out of a language directory, so one copy of each image serves all three", () => {
+    expect(assetPrefix("ka")).toBe("../");
+    expect(assetPrefix("ru")).toBe("../");
   });
 });

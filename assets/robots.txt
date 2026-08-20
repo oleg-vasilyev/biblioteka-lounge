@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oleg-vasilyev.github.io/biblioteka-lounge/sitemap.xml
