@@ -35,6 +35,7 @@ sequenceDiagram
     actor U as Owner of the pitch
     participant C as Claude Code, the AI developer
     participant P as page-designer, the design agent
+    participant V as design-reviewer, fresh eyes on every sheet
     participant D as Claude Design, the canvas
     participant K as Project skills, .claude/skills
     participant H as Auto-linter, fires on its own
@@ -54,10 +55,15 @@ sequenceDiagram
     U-->>C: agreed, or cut it down
     opt the change affects what a visitor sees
         C->>P: the page-designer agent — the requirements, in words
-        P->>K: the ui-ux-pro-max catalog — pattern, palette, type, the priority rules
         P->>D: read the design canvas, once the identity phase has created it
         P->>P: name the cases the design must survive, then draw every one, then look
         P-->>C: the contact sheet, the committed cases, the decisions with numbers
+        C->>V: the sheet and panels, paths only — the designer's note withheld
+        V-->>C: the measured checklist and findings, most severe first
+        loop while findings remain
+            C->>P: the findings, verbatim
+            P-->>C: the sheet redrawn, every fix carrying its measurement
+        end
         C->>U: the contact sheet for approval — everything to compare, in one view
         U-->>C: approved, or changes
     end

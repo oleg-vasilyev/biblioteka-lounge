@@ -28,9 +28,3 @@ No analytics, so "does anyone arrive" is unanswerable — fine for a demo that
 is pitched in person. **Trigger:** the owner says yes to finishing the site.
 Then add a cookie-less beacon (GoatCounter, as in the reference project) and a
 Search Console property, and record both dashboards in README.
-
-## `docs:check` does not exist until the build phase
-
-CLAUDE.md's line budget, the freshness of `docs/`, and cross-document links
-are enforced by hand until `scripts/` exist. **Trigger:** the build-pipeline
-phase (next) — it owes a `docs:check` script wired into `npm run check`.
