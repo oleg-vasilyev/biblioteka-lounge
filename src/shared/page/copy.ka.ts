@@ -18,5 +18,6 @@ export const copy: Copy = {
   menuSnapshotNoteAfter: "-ის ჩანაწერი დაწესებულების საკუთარი მენიუდან.",
   photosBorrowedNoteBefore: "ფოტოები ნასესხებია ",
   photosBorrowedNoteAfter: "-ს Instagram-იდან\u00a0\u2014 მფლობელის თანხმობამდე.",
+  socialImageAlt: "Biblioteka Lounge-ის ლოგო\u00a0\u2014 ალი აგურის ღელში.",
   georgianDraftNote: "ქართული ტექსტი მანქანურად არის ნათარგმნი და ელოდება მშობლიურ ენაზე მკითხველს.",
 };

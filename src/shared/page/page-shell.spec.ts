@@ -3,8 +3,16 @@ import { copyIn } from "#shared/page/copy.ts";
 import { renderPageShell } from "#shared/page/page-shell.ts";
 
 
-const mark = (value: unknown): string =>
-  typeof value === "string" ? `[e:${value}]` : (value as { trusted: string }).trusted;
+const mark = (value: unknown): string => {
+  if (typeof value === "string") {
+    return `[e:${value}]`;
+  }
+  if (typeof value === "number") {
+    return String(value);
+  }
+
+  return (value as { trusted: string }).trusted;
+};
 
 vi.mock("#shared/html/html.ts", () => ({
   html: (strings: TemplateStringsArray, ...values: unknown[]) =>
@@ -77,6 +85,27 @@ describe("page shell", () => {
     );
     expect(page).toContain('<meta name="description" content="[e:Hookah by the fireplace.]">');
     expect(page).toContain('<meta property="og:locale" content="[e:ru]">');
+  });
+
+  it("measures the card, so a scraper renders it wide instead of guessing small", () => {
+    const page = renderPageShell("en", copyIn("en"), DESCRIPTION, FACTS, "");
+
+    expect(page).toContain('<meta property="og:image:type" content="[e:image/png]">');
+    expect(page).toContain('<meta property="og:image:width" content="1200">');
+    expect(page).toContain('<meta property="og:image:height" content="630">');
+    expect(page).toContain('<meta name="twitter:card" content="summary_large_image">');
+    expect(page).toContain(
+      '<meta name="twitter:image" content="[e:https://example.test/img/social-cover.png]">',
+    );
+  });
+
+  it("describes the card in the page's own language, for a reader who cannot see it", () => {
+    expect(renderPageShell("ka", copyIn("ka"), DESCRIPTION, FACTS, "")).toContain(
+      '<meta property="og:image:alt" content="[e:Biblioteka Lounge-ის ლოგო — ალი აგურის ღელში.]">',
+    );
+    expect(renderPageShell("ru", copyIn("ru"), DESCRIPTION, FACTS, "")).toContain(
+      '<meta property="og:image:alt" content="[e:Логотип Biblioteka Lounge — пламя в устье кирпичной печи.]">',
+    );
   });
 
   it("finds the icon from the page's own depth", () => {

@@ -7,7 +7,7 @@ import { fontsHref } from "#shared/page/webfonts.ts";
 import { assetUrl, canonicalUrl } from "#shared/site/site-address.ts";
 
 
-const SOCIAL_IMAGE = "img/social-cover.png";
+const SOCIAL_IMAGE = { file: "img/social-cover.png", type: "image/png", width: 1200, height: 630 };
 
 const FAVICON = "favicon.svg";
 
@@ -25,9 +25,14 @@ const renderSocialTags = (locale: Locale, copy: Copy, description: string): Trus
 <meta property="og:title" content="${copy.siteName}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonicalUrl(locale)}">
-<meta property="og:image" content="${assetUrl(SOCIAL_IMAGE)}">
+<meta property="og:image" content="${assetUrl(SOCIAL_IMAGE.file)}">
+<meta property="og:image:type" content="${SOCIAL_IMAGE.type}">
+<meta property="og:image:width" content="${SOCIAL_IMAGE.width}">
+<meta property="og:image:height" content="${SOCIAL_IMAGE.height}">
+<meta property="og:image:alt" content="${copy.socialImageAlt}">
 <meta property="og:locale" content="${locale}">
-<meta name="twitter:card" content="summary_large_image">`);
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="${assetUrl(SOCIAL_IMAGE.file)}">`);
 
 const renderHead = (locale: Locale, copy: Copy, description: string): TrustedHtml =>
   raw(html`<meta charset="utf-8">
