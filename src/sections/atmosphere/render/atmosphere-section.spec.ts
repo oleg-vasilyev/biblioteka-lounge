@@ -89,7 +89,7 @@ describe("atmosphere section", () => {
     const page = renderAtmosphereSection(copyIn("ru"), "", 16);
 
     expect(page).toContain(
-      "<figcaption>[e:Стол у самого огня\u00a0\u2014 один. Просите его, когда бронируете.]</figcaption>",
+      "<figcaption>[e:Живой огонь на втором этаже\u00a0\u2014 зимой к нему тянет весь дом.]</figcaption>",
     );
     expect(page).not.toContain("логотип");
   });

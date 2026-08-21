@@ -39,7 +39,10 @@ confirmed with staff at the pitch:
   hookah bar; 4.8★ over 622 Google reviews; 30–80 GEL per person.
 - **The kitchen is Belarusian** — borscht, draniki, mangal meat — which no
   other lounge in Tbilisi claims: it is an identity hook, not a menu detail.
-  There is a fireplace.
+- **The place is a whole house with a garden**, not one room (the owner of
+  the pitch, 2026-08-21). The live fireplace is one room on the second
+  floor. The "library" is painted: murals of readers and shelves on the
+  walls — there are no real books to take down, so no copy may offer them.
 - **Address:** Aleksandre Abasheli St 1, Tbilisi (Plus code PQ47+9M).
 - **Hours:** Mon–Thu and Sun 14:00–02:00, Fri–Sat 14:00–03:00.
 - **Phone:** +995 551 76 60 60.
