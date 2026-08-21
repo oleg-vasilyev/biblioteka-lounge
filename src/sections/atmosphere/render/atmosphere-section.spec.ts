@@ -85,11 +85,11 @@ describe("atmosphere section", () => {
     expect(page.match(/loading="lazy"/g)).toHaveLength(4);
   });
 
-  it("captions the hearth by what is in the frame, pointing at nothing else on the page", () => {
+  it("captions the hearth with something the photo cannot show, pointing at nothing else on the page", () => {
     const page = renderAtmosphereSection(copyIn("ru"), "", 16);
 
     expect(page).toContain(
-      "<figcaption>[e:Очаг в глубине зала — стол, накрытый перед ним в декабре.]</figcaption>",
+      "<figcaption>[e:Стол у самого огня\u00a0\u2014 один. Просите его, когда бронируете.]</figcaption>",
     );
     expect(page).not.toContain("логотип");
   });
