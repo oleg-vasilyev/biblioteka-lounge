@@ -41,22 +41,24 @@ first phase that makes them conditional (a holiday note, a seasonal garden).
 Then the times move into `data/venue.ts` and the copy interpolates them, as
 the price and the snapshot date already do.
 
-## The drawings carry the palette as literals
+## The favicon carries the palette as literals
 
-`brand-mark.ts`, `hearth-drawing.ts`, `mural-drawing.ts` and `favicon.svg`
-hard-code `#C75B54` and `#8F2430`, which also exist as `--ember` and
-`--oxblood` in the stylesheet — and the drawing specs assert the literals, so
-the split is cemented. SVG cannot read a CSS variable it was not given, and
-`currentColor` only carries one of them. **Trigger:** the first palette change
-after the pitch. Then the drawings take their colours as arguments and the
-specs assert what was passed in.
+An inline SVG can be painted from `--paper` and `--ink`, and the logo on the
+page is; `assets/favicon.svg` is a file a browser fetches on its own, with no
+stylesheet behind it, so its two hex values are baked in — and they are baked
+into `design/logo-trace/trace-the-logo.py`, not next to the palette that
+defines them. Change the palette and the tab icon keeps the old one, silently.
+**Trigger:** the first palette change after the pitch. Then the generator's
+`FAVICON` constant takes the new values and the file is regenerated.
 
-## Nothing regenerates the photo derivatives
+## Every page downloads whole Google font subsets
 
-The three frames the page ships (`assets/img/`) were cropped and resized by
-hand from `design/photos-inbox/`, during the design rounds, and the build only
-copies them. So a new photograph cannot join the page by dropping a file in:
-somebody has to repeat a crop nothing records. **Trigger:** the first frame
-the owner supplies himself. Then `scripts/` owes a derivative step — long edge
-and target weight named in one place, the crop recorded beside the output.
-
+The copy on these pages is fixed and small — a few hundred distinct
+characters — yet each page fetches Google's full subsets: 78 KB of Literata
+in English, and the Georgian page another 130 KB of Noto Serif Georgian. A
+subset built from the characters the page actually sets would be a fraction of
+that, and it is the reason the first screen has room for words but not for a
+photograph. **Trigger:** the owner says yes and the first screen wants an
+image, or a real phone on Georgian mobile data makes the wait visible. Then
+self-host woff2 subsets built from the copy tables, and the build owes a step
+that rebuilds them when copy changes.

@@ -7,7 +7,7 @@ import { fontsHref } from "#shared/page/webfonts.ts";
 import { assetUrl, canonicalUrl } from "#shared/site/site-address.ts";
 
 
-const SOCIAL_IMAGE = "img/fireplace-hearth-wide-900.jpg";
+const SOCIAL_IMAGE = "img/social-cover.png";
 
 const FAVICON = "favicon.svg";
 

@@ -52,7 +52,13 @@ breaks first: longer words, different script metrics. On this machine the
 trustworthy viewport is a 375px iframe harness screenshotted by headless Edge:
 the app's preview pane reports zero-width layout when its panel is not
 displayed, and a bare `--window-size=375` silently lays out at Edge's ~500px
-minimum — both lie without failing. The output is **specific
+minimum — both lie without failing. Two more silent lies, each of which cost a
+blank grey screenshot before it was found: a harness on `file://` cannot read
+into a `localhost` iframe at all, so **serve the harness from the same origin
+as the pages** when it has to measure rather than only look; and three iframes
+racing one `python -m http.server` sometimes all come back empty, so shoot
+**one page per screenshot** and stitch them afterwards. The output is
+**specific
 claims, not a verdict** — if you cannot name what you saw on a page, you did
 not look at it. Ask of each:
 

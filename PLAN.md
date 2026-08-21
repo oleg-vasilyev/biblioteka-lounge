@@ -89,12 +89,15 @@ because they are decisions, not details:
    every other day. One neutral line covers both regimes — closing at 02:00,
    Fri–Sat at 03:00 — and stays true whenever it is read. The street belongs
    here too: the first screen answers *where* as well as *what*.
-2. **atmosphere** — four frames, one concrete sentence each: the hearth, the
-   borscht, the shelf of board games, and the wall mural **drawn rather than
-   photographed**. The public captures hold no hookah and no beer taps, and
-   the one mural photograph was too soft to print — so the section carries
-   what the venue actually gave, and draws what it did not. A photograph
-   whose caption cannot be true of it is replaced, never re-captioned.
+2. **atmosphere** — four photographs, one concrete sentence each: the hearth
+   with a table laid in front of it, the reading wall, the borscht, the shelf
+   of board games. **A caption says what is in its own frame and points at
+   nothing else on the page** — an early set explained each picture by its
+   likeness to the logo, which tells a visitor nothing they came for. No
+   capture shows the beer taps, and the only hookah in any of them stands at
+   the edge of the mural frame — so the section carries what the venue
+   actually gave. A photograph whose caption cannot be true of it is replaced,
+   never re-captioned.
 3. **menu-preview** — a handful of signature items per category group with
    prices in GEL, and one link to the full live menu on eat-me.online. The
    groups follow what the place is actually for: hookah first, the
@@ -144,10 +147,19 @@ to the live menu.
 
 The source publishes each name as one string mashing up to three languages;
 the capture splits it by letter majority per segment. A language the venue
-never wrote is filled from what exists — en, then ru, then ka — because the
-demo shows the venue's own words rather than hiding a dish it sells: roughly
-half the items have no Georgian and no English name at the source, and that
-gap is the owner's to close, not the demo's to invent.
+never wrote is filled from what exists — en, then ru, then ka — so the
+snapshot stays a faithful record: roughly half the items have no Georgian and
+no English name at the source.
+
+**The snapshot is never edited to read better.** Where a showcased name would
+otherwise reach a page in an alphabet that page does not speak, the
+translation is ours and lives apart from the snapshot, in
+`data/menu-translations.ts`, keyed by the English name the capture recorded.
+Twelve names are showcased and exactly one needed it. The page therefore never
+apologises for a name it failed to translate, and the snapshot can still be
+re-captured without losing the work — the earlier design admitted the gap in
+a footnote instead, which asked the visitor to forgive what a lounge should
+simply have said in their language.
 
 ## Invariants
 
@@ -185,15 +197,29 @@ The site is live at
 <https://oleg-vasilyev.github.io/biblioteka-lounge/>, served from `docs/` on
 `main`. A `.ge` domain stays the owner's purchase.
 
-## What the identity decided, and why it is not a photograph
+## What the identity decided, and where the logo came from
 
-The five-second screen is **a drawing, not a photo**. Four review rounds
-killed every photographic hero: the venue's own fireplace frame carries a
-nutcracker, a red candle and a festive tablecloth — it reads as December, and
-the pitch is in August. The authored hearth (a brick ring, logs, a sketched
-flame, a shelf of spines above it) has no season, weighs nothing, and repeats
-the logo's own device at full size. The fireplace photograph moved into
-atmosphere under a caption that says outright it was a December evening.
+The venue already has a logo, and the site wears it: **BIBLI●TEKA**, the O a
+brick oven mouth with a flame in it, a LOUNGE ribbon and three stars beneath.
+Its only surviving image is the foot of one promo photograph, so the mark on
+the page is a **trace, not an imitation** — flat 1-bit artwork threshold-ed
+and followed at sub-pixel accuracy into a single even-odd path, where the ink
+fills and every white counter becomes a hole
+(`design/logo-trace/trace-the-logo.py`). An earlier phase invented a hearth
+mark instead; nothing invented survives on the page now.
+
+The lockup is one drawing but two colour readings, which is why the trace
+keeps the emblem and the letters apart: on the dark first screen the letters
+reverse to paper, while the emblem sits on a **paper coin** and keeps its own
+ink-on-paper reading — reversing it too would turn the fire into a hole.
+Colour lives in the stylesheet, never in the path.
+
+**No photograph appears above the fold.** Four review rounds killed every
+photographic hero, and the weight budget above settles it independently: the
+Georgian page already spends its allowance on two alphabets. The venue's
+fireplace frame — the whole brick arch, the fire, the table laid in front of
+it — opens the atmosphere section instead, cut to an arch that rhymes with
+the emblem's ring, under a caption that says outright it was December.
 
 Two rules the rounds turned into constraints, both recorded above: the hours
 line may never say "tonight", and the street belongs on the first screen. The
@@ -205,8 +231,8 @@ lari sign is left to the system stack.
 
 - Whether the venue wants its name transliterated anywhere — the demo writes
   Biblioteka Lounge in Latin on every page until the owner says otherwise.
-- One photo each of a hookah and the beer taps — PLAN's atmosphere sentence
-  promises both and the public captures hold neither.
+- One photo each of a hookah and the beer taps — the beer taps appear in no
+  public capture, and the only hookah stands at the edge of the mural frame.
 - Which photos the owner is happy to see used — the demo borrows from their
   public Instagram and Google Maps; the finished site should get originals.
 - A native reader for the Georgian copy.

@@ -6,7 +6,7 @@ export const stylesheetFor = (locale: Locale): string => `:root{
   --paper:#F3EDE2; --paper-shade:#EAE1D1; --line:#D8CCB8;
   --ink:#221B14; --ink-muted:#5C5044;
   --night-line:#463B2F; --night-muted:#C2B49D;
-  --oxblood:#8F2430; --ember:#C75B54;
+  --oxblood:#8F2430;
   --s5:24px;--s6:32px;--s7:48px;--s8:64px;
   --serif:${serifStack(locale)};
   --serif-sys:Georgia,serif;
@@ -23,10 +23,11 @@ img{display:block;max-width:100%}
 .night{background:var(--ink);color:var(--paper)}
 .wrap{max-width:680px;margin:0 auto}
 .hero{padding:var(--s7) 20px var(--s6);text-align:center}
-.brand-big{font-size:clamp(26px,8.8vw,33px);font-weight:600;letter-spacing:.09em;line-height:1;white-space:nowrap;margin:0}
-.brand-big .oh{width:.91em;height:.91em;margin:0 2px;vertical-align:-.09em;color:var(--paper)}
-.lounge{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px;font-size:13px;font-weight:600;letter-spacing:.45em;text-indent:.45em}
-.lounge::before,.lounge::after{content:"";height:1px;width:34px;background:var(--night-line)}
+.brand-big{margin:0}
+.logo{display:block;width:100%;max-width:286px;margin:0 auto}
+.logo .coin{fill:var(--paper)}
+.logo .emblem{fill:var(--ink)}
+.logo .letters{fill:currentColor}
 .tagline{margin:26px auto 0;max-width:32ch;font-size:18px;line-height:1.55;min-height:112px}
 :lang(ka) .tagline{max-width:none;font-size:17px}
 .meta{margin:18px auto 0;line-height:1.5}
@@ -37,10 +38,6 @@ img{display:block;max-width:100%}
 .btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;max-width:360px;background:var(--paper);color:var(--ink);font:600 16px/1.2 var(--serif);letter-spacing:.02em;text-decoration:none;border-radius:3px;padding:8px 20px;text-align:center}
 .linklight{display:inline-flex;align-items:center;min-height:44px;color:var(--paper);font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--night-muted);padding:0 8px}
 .vlist .linklight{padding:0}
-.arch-fig{margin:36px auto 0;max-width:360px}
-.arch{border:1px solid var(--night-line);padding:10px;border-radius:999px 999px 6px 6px}
-.arch svg{width:100%;height:auto;display:block}
-.arch-fig figcaption{margin-top:12px;font-size:13.5px;line-height:1.5;min-height:61px;color:var(--night-muted);text-align:center;padding:0 10px}
 .sec{padding:var(--s7) 20px}
 .label{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);margin:0}
 :lang(ka) .label{letter-spacing:.1em}
@@ -54,7 +51,8 @@ img{display:block;max-width:100%}
 }
 .ph{margin:28px 0 0}
 .mat{background:var(--paper-shade);border:1px solid var(--line);padding:10px}
-.mat img,.mat svg{width:100%;height:auto}
+.mat img{width:100%;height:auto}
+.arched .mat img{border-radius:999px 999px 3px 3px}
 .ph figcaption{margin-top:10px;font-size:14px;line-height:1.5;color:var(--ink-muted)}
 .ph figcaption::before{content:"\\2014\\00a0";color:var(--oxblood)}
 .menu{background:var(--paper-shade)}
@@ -64,12 +62,10 @@ img{display:block;max-width:100%}
 :lang(ka) .mcard h3{letter-spacing:.08em}
 .row{display:flex;align-items:flex-end;gap:8px;padding:9px 0;margin:0}
 .row .nm{flex:0 1 auto;font-size:16px;line-height:1.45;min-width:0;overflow-wrap:break-word}
-.row .nm-x{font-family:var(--serif-sys)}
 .lari{font-family:var(--serif-sys)}
 .sym{font-family:var(--serif-sys)}
 .row .dots{flex:1 0 20px;border-bottom:2px dotted var(--line);margin-bottom:5px}
 .row .pr{flex:none;font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
-.mnote{margin-top:14px;font-size:13.5px;line-height:1.5;color:var(--ink-muted)}
 .mlink{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;color:var(--oxblood);font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:4px}
 .vlist{margin:22px 0 0;padding:0;list-style:none}
 .vlist li{padding:7px 0;font-size:15.5px;line-height:1.5}
@@ -81,9 +77,8 @@ img{display:block;max-width:100%}
 .foot p{margin:4px 0}
 @media(min-width:900px){
   .hero{padding-top:var(--s8)}
-  .brand-big{font-size:46px}
-  .tagline{font-size:20px;max-width:36ch}
-  .arch-fig{max-width:400px}
+  .logo{max-width:380px}
+  .tagline{font-size:20px;max-width:36ch;min-height:93px}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
   .grid2 .ph{margin-top:28px}
 }`;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { usesForeignScript } from "#menu-preview/render/foreign-script.ts";
+import { usesForeignScript } from "#shared/locale/foreign-script.ts";
 
 
 describe("usesForeignScript", () => {

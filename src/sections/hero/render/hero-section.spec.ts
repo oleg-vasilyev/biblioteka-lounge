@@ -25,10 +25,8 @@ vi.mock("#shared/html/html.ts", () => ({
   raw: (trusted: string) => ({ trusted }),
 }));
 
-vi.mock("#shared/page/brand-mark.ts", () => ({ hearthMark: () => ({ trusted: "«hearth-mark»" }) }));
-
-vi.mock("#hero/render/hearth-drawing.ts", () => ({
-  hearthDrawing: () => ({ trusted: "«hearth-drawing»" }),
+vi.mock("#shared/brand/brand-lockup.ts", () => ({
+  brandLockup: (name: string) => ({ trusted: `«lockup:${name}»` }),
 }));
 
 const venue = {
@@ -43,12 +41,19 @@ const venue = {
 };
 
 describe("hero section", () => {
-  it("builds the wordmark around the hearth mark, in Latin on every language page", () => {
+  it("carries the venue's own logo as the heading, marked Latin on every language page", () => {
     for (const locale of ["en", "ka", "ru"] as const) {
       expect(renderHeroSection(copyIn(locale), venue)).toContain(
-        '<h1 class="brand-big" lang="[e:en]">[e:BIBLI]«hearth-mark»[e:TEKA]</h1>',
+        '<h1 class="brand-big" lang="[e:en]">«lockup:Biblioteka Lounge»</h1>',
       );
     }
+  });
+
+  it("keeps no wordmark of its own, so the logo is the only spelling of the name", () => {
+    const page = renderHeroSection(copyIn("en"), venue);
+
+    expect(page).not.toContain("BIBLI");
+    expect(page).not.toContain("LOUNGE");
   });
 
   it("states the street on the first screen, in each language's own spelling", () => {
@@ -66,15 +71,17 @@ describe("hero section", () => {
   it("names the days that own each closing time, so no reading of it is ever false", () => {
     const hours = copyIn("en").hours;
 
-    expect(hours).toContain("Sun–Thu till 02:00");
-    expect(hours).toContain("Fri–Sat till 03:00");
+    expect(hours).toContain("Sun\u2013Thu till 02:00");
+    expect(hours).toContain("Fri\u2013Sat till 03:00");
     expect(hours).not.toContain("tonight");
-    expect(renderHeroSection(copyIn("en"), venue)).toContain(`<span class="hrs">[e:${hours}]</span>`);
+    expect(renderHeroSection(copyIn("en"), venue)).toContain(
+      `<span class="hrs">[e:${hours}]</span>`,
+    );
   });
 
   it("assembles the rating from the venue facts, never from a sentence in the copy", () => {
     expect(renderHeroSection(copyIn("en"), venue)).toContain(
-      '<span class="rate">[e:4.8]<span class="sym">[e:★ · ]</span>622[e: Google reviews]</span>',
+      '<span class="rate">[e:4.8]<span class="sym">[e:★\u00a0\u00b7\u00a0]</span>622[e: Google reviews]</span>',
     );
   });
 
@@ -89,12 +96,11 @@ describe("hero section", () => {
     expect(page).toContain("[e:или позвоните: ][e:+995 551 76 60 60]");
   });
 
-  it("closes the first screen with the drawn hearth and the caption that names it", () => {
+  it("shows no photograph at all, so the first screen stays under its weight budget", () => {
     const page = renderHeroSection(copyIn("en"), venue);
 
-    expect(page).toContain('<div class="arch">«hearth-drawing»</div>');
-    expect(page).toContain(
-      "<figcaption>[e:Shelves of paperbacks and the round brick hearth — the same hearth as in the logo above.]</figcaption>",
-    );
+    expect(page).not.toContain("<img");
+    expect(page).not.toContain("<figure");
+    expect(page.trimEnd().endsWith("</section>")).toBe(true);
   });
 });

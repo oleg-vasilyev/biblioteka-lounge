@@ -73,7 +73,7 @@ describe("page shell", () => {
     const page = renderPageShell("ru", copyIn("ru"), DESCRIPTION, FACTS, "");
 
     expect(page).toContain(
-      '<meta property="og:image" content="[e:https://example.test/img/fireplace-hearth-wide-900.jpg]">',
+      '<meta property="og:image" content="[e:https://example.test/img/social-cover.png]">',
     );
     expect(page).toContain('<meta name="description" content="[e:Hookah by the fireplace.]">');
     expect(page).toContain('<meta property="og:locale" content="[e:ru]">');

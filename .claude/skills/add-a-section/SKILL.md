@@ -46,7 +46,9 @@ read alone in an editor tab: `menu-preview-section.ts`, not `section.ts`.
   three tables. Georgian and the non-breaking spaces before every em dash do
   not survive a human transcription: the one line typed by hand in the
   identity phase came out as `თანხპმამდე` for `თანხმობამდე`, and only a diff
-  against the panel caught it.
+  against the panel caught it. The `escaped-punctuation` lint rule now fails a
+  copy table whose punctuation was typed rather than escaped — it catches the
+  lost non-breaking space, and nothing at all about a misspelt Georgian word.
 - **Copy is a parameter, never an import** — render functions take
   `copy: Copy`; only the build script resolves a locale.
 - **Copy interpolates, never decides** — a choice between two phrasings is a

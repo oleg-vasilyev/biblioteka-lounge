@@ -14,8 +14,8 @@ describe("site address", () => {
   });
 
   it("addresses an asset from the site root, so a shared card never resolves per language", () => {
-    expect(assetUrl("img/fireplace-hearth-wide-900.jpg")).toBe(
-      "https://oleg-vasilyev.github.io/biblioteka-lounge/img/fireplace-hearth-wide-900.jpg",
+    expect(assetUrl("img/social-cover.png")).toBe(
+      "https://oleg-vasilyev.github.io/biblioteka-lounge/img/social-cover.png",
     );
   });
 });

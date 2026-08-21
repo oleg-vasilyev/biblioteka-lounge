@@ -6,7 +6,6 @@ export const copy = {
   groupHookah: "Hookah",
   groupKitchen: "The Belarusian kitchen",
   groupBar: "The bar",
-  note: "Names appear exactly as the venue’s menu writes them\u00a0\u2014 some exist in one language only.",
   fullMenuLink: "Full menu with live prices →",
 };
 

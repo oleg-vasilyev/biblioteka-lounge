@@ -14,7 +14,7 @@
 <meta property="og:title" content="Библиотека Лаунж">
 <meta property="og:description" content="Кальян у камина. Борщ, драники и мангал — единственная белорусская кухня среди лаунжей Тбилиси.">
 <meta property="og:url" content="https://oleg-vasilyev.github.io/biblioteka-lounge/ru/">
-<meta property="og:image" content="https://oleg-vasilyev.github.io/biblioteka-lounge/img/fireplace-hearth-wide-900.jpg">
+<meta property="og:image" content="https://oleg-vasilyev.github.io/biblioteka-lounge/img/social-cover.png">
 <meta property="og:locale" content="ru">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -25,7 +25,7 @@
   --paper:#F3EDE2; --paper-shade:#EAE1D1; --line:#D8CCB8;
   --ink:#221B14; --ink-muted:#5C5044;
   --night-line:#463B2F; --night-muted:#C2B49D;
-  --oxblood:#8F2430; --ember:#C75B54;
+  --oxblood:#8F2430;
   --s5:24px;--s6:32px;--s7:48px;--s8:64px;
   --serif:Literata,Georgia,serif;
   --serif-sys:Georgia,serif;
@@ -42,10 +42,11 @@ img{display:block;max-width:100%}
 .night{background:var(--ink);color:var(--paper)}
 .wrap{max-width:680px;margin:0 auto}
 .hero{padding:var(--s7) 20px var(--s6);text-align:center}
-.brand-big{font-size:clamp(26px,8.8vw,33px);font-weight:600;letter-spacing:.09em;line-height:1;white-space:nowrap;margin:0}
-.brand-big .oh{width:.91em;height:.91em;margin:0 2px;vertical-align:-.09em;color:var(--paper)}
-.lounge{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px;font-size:13px;font-weight:600;letter-spacing:.45em;text-indent:.45em}
-.lounge::before,.lounge::after{content:"";height:1px;width:34px;background:var(--night-line)}
+.brand-big{margin:0}
+.logo{display:block;width:100%;max-width:286px;margin:0 auto}
+.logo .coin{fill:var(--paper)}
+.logo .emblem{fill:var(--ink)}
+.logo .letters{fill:currentColor}
 .tagline{margin:26px auto 0;max-width:32ch;font-size:18px;line-height:1.55;min-height:112px}
 :lang(ka) .tagline{max-width:none;font-size:17px}
 .meta{margin:18px auto 0;line-height:1.5}
@@ -56,10 +57,6 @@ img{display:block;max-width:100%}
 .btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;max-width:360px;background:var(--paper);color:var(--ink);font:600 16px/1.2 var(--serif);letter-spacing:.02em;text-decoration:none;border-radius:3px;padding:8px 20px;text-align:center}
 .linklight{display:inline-flex;align-items:center;min-height:44px;color:var(--paper);font-size:14px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--night-muted);padding:0 8px}
 .vlist .linklight{padding:0}
-.arch-fig{margin:36px auto 0;max-width:360px}
-.arch{border:1px solid var(--night-line);padding:10px;border-radius:999px 999px 6px 6px}
-.arch svg{width:100%;height:auto;display:block}
-.arch-fig figcaption{margin-top:12px;font-size:13.5px;line-height:1.5;min-height:61px;color:var(--night-muted);text-align:center;padding:0 10px}
 .sec{padding:var(--s7) 20px}
 .label{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);margin:0}
 :lang(ka) .label{letter-spacing:.1em}
@@ -73,7 +70,8 @@ img{display:block;max-width:100%}
 }
 .ph{margin:28px 0 0}
 .mat{background:var(--paper-shade);border:1px solid var(--line);padding:10px}
-.mat img,.mat svg{width:100%;height:auto}
+.mat img{width:100%;height:auto}
+.arched .mat img{border-radius:999px 999px 3px 3px}
 .ph figcaption{margin-top:10px;font-size:14px;line-height:1.5;color:var(--ink-muted)}
 .ph figcaption::before{content:"\2014\00a0";color:var(--oxblood)}
 .menu{background:var(--paper-shade)}
@@ -83,12 +81,10 @@ img{display:block;max-width:100%}
 :lang(ka) .mcard h3{letter-spacing:.08em}
 .row{display:flex;align-items:flex-end;gap:8px;padding:9px 0;margin:0}
 .row .nm{flex:0 1 auto;font-size:16px;line-height:1.45;min-width:0;overflow-wrap:break-word}
-.row .nm-x{font-family:var(--serif-sys)}
 .lari{font-family:var(--serif-sys)}
 .sym{font-family:var(--serif-sys)}
 .row .dots{flex:1 0 20px;border-bottom:2px dotted var(--line);margin-bottom:5px}
 .row .pr{flex:none;font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
-.mnote{margin-top:14px;font-size:13.5px;line-height:1.5;color:var(--ink-muted)}
 .mlink{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;color:var(--oxblood);font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:4px}
 .vlist{margin:22px 0 0;padding:0;list-style:none}
 .vlist li{padding:7px 0;font-size:15.5px;line-height:1.5}
@@ -100,9 +96,8 @@ img{display:block;max-width:100%}
 .foot p{margin:4px 0}
 @media(min-width:900px){
   .hero{padding-top:var(--s8)}
-  .brand-big{font-size:46px}
-  .tagline{font-size:20px;max-width:36ch}
-  .arch-fig{max-width:400px}
+  .logo{max-width:380px}
+  .tagline{font-size:20px;max-width:36ch;min-height:93px}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
   .grid2 .ph{margin-top:28px}
 }</style>
@@ -113,112 +108,29 @@ img{display:block;max-width:100%}
 </div></header>
 <main><section class="hero night">
 <div class="wrap">
-<h1 class="brand-big" lang="en">BIBLI<svg class="oh" viewBox="0 0 100 100" aria-hidden="true">
-<circle cx="50" cy="50" r="36" fill="#221B14"/>
-<circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="13" stroke-dasharray="15.5 4.5" stroke-dashoffset="8"/>
-<path fill="#C75B54" d="M50 76 C41 72 35 64 38 55 C40 49 44 45 43 37 C48 41 51 46 51 51 C55 47 56 41 54 34 C62 42 66 53 63 62 C61 70 56 74 50 76 Z"/>
-<path fill="#F3EDE2" d="M50 71 C45 68 42 63 44 58 C45 55 48 52 48 47 C51 50 52 54 52 57 C55 55 56 51 55 48 C59 53 60 59 58 63 C56 68 53 70 50 71 Z"/>
-</svg>TEKA</h1>
-<div class="lounge" lang="en">LOUNGE</div>
+<h1 class="brand-big" lang="en"><svg class="logo" viewBox="0 0 1000 279.2" role="img" aria-label="Biblioteka Lounge"><circle class="coin" cx="507.4" cy="139.6" r="142.4"/><path class="emblem" fill-rule="evenodd" d="m496.2,0h-8.4l-3.3,1.4-.4,14.6-.9,-.4-1.8,-5.5-2.2,-1-20.8,6.8-15.8,7.2-1,2.6 1.2,4.6-.5,1.1-.9,-.1-2.3,-3.7-1.4,-1-4.4,2.4-19.1,16-9.1,9.6-.5,2.5 3.4,3.4 .3,1.4h-1.5l-4.3,-2.6-1.8,1.2-2.8,3.8-16.6,31.7 .5,2 4.1,3.2-4.7,-.7-1.8,2.1-4.6,18.8-2.7,21.3 .7,1.8 4.3,.7 .8,1-.8,.8-3.9,.6-1,2 4.7,28.8-1.5,2.3 .3,4.1 2.1,7.8 1.9,2.1 8.2,1.6 2.6,5.8-2.1,2.1-3.5,1-3.7,-1-4.9,-4-1.7,.4-.9,2.3 1.1,3.2 14.6,27.1 3,3.1 5.5,2.4 3.4,.4 11,-3.4 13,13.3 10.9,8.7 13.6,8.5 12.7,5.7 9.5,3 13.8,3.1 23.1,1.2 18.4,-1.4 8.4,-1.5 14.1,-4.2 10.4,-4.4 15,-8.6 10.9,-8.7 14.5,-14 1.4,-.3 7.5,2.9 4.3,.3 2.9,-.5 4.3,-2.9 2.9,-3.6 15.9,-29.4-.2,-2.3-1.6,-.8-1.7,.6-4.4,3.4-2.3,.7-4.3,-.4-1,-2.3 2.2,-5.4 8,-1.4 2.1,-2.7 2.2,-10.4-1.2,-3.7 3.4,-14.8 1.7,-13.5-.7,-1.9-4.6,-1-.9,-1.1 .9,-1 4.6,-.3 .8,-2.5-3.1,-20.7-4.3,-18.5-2,-2-4,.5-1,-.5 .5,-1.2 3.5,-2 .1,-2.2-8.7,-18.8-7.3,-12.7-4.2,-4.8-4.3,1.7-.8,-.3-.1,-1.5 2.3,-3.2v-1.4l-9,-9.5-11.7,-10.2-10.4,-7.5h-2l-3.2,3.6-.8,.1 1.4,-5.6-.8,-1.7-17.1,-7.8-21.6,-6.6-1.9,1.1-1.8,5.8-.9,.5 .4,-13.8-1.5,-2.5-32,-.4zm-2.1,4.3l24.3,-.1 5.4,.2 1.2,.8 .5,2.6-3.1,37.8-1.4,1.7-28.6,.1-1,-.7-2.9,-40.6 1,-1.6 4.4,-.2zm16.4,1.4l-.9,1.2 1.2,1.2 8.3,.2 3.5,.8 1.5,-1.6-1.5,-1.7-11.8,-.1zm-33.5,8.7l1.2,.3 1.2,2.6 6.3,27.4-13.6,4.4-12.6,5.7-1.5,-.6-4.1,-7.8-8.6,-19.7 10.1,-4.8 21.4,-7.4zm58.1,-.1l7.6,1.8 15.8,5.4 9.4,4.9-.1,1.8-2.1,4.9-10.1,21-1.1,.1-7.8,-3.8-18.8,-6.4 2.6,-13.5 4.4,-16.1zm-60.3,2.5l-8.9,3.3-.5,1 4,.2 6,-2.4 2.3,1 .7,-1.1-.4,-1.4-2.9,-.7zm77.9,4.7l-1.1,.9 .8,1.3 8,2.7 2.3,1.5 1.2,2.2 2,-1.9-1.1,-1.8-11.8,-4.9zm23.5,10.4h1.2l19.4,15.7 6.1,6.2 .1,2-7.4,8.5-13,11.9-12.7,-11.5-8.4,-6.3v-2.3l14.5,-23.9zm-139.7,0h.8l1.2,1.4 14.5,23.7-17,14.7-4.8,5.2h-1.2l-6.3,-5.9-13.1,-13.2-1.3,-2 8.9,-9.7 14.2,-11.7 4,-2.5zm-.3,2.5l-4.6,2.7-5.4,4.3-.4,1.2 1.2,.6 8.1,-5.9 3.4,.9-1,-3.1-1,-.7zm154.8,11.3l.1,1.5 6.8,6.6 .5,2.6 .7,.3 2,-1.5-.4,-1.7-8,-7.3-1.4,-.5zm-85.1,15.3l1.5,.5-.3,1.5-1.7,-.3 .3,-1.6zm-13.4,1.1l1.2,.8-.5,1.7-1.2,-.5 .3,-1.9zm27.7,-.1l1.4,.5-.3,1.5h-1.4v-1.8zm90,.9l1.5,.3 4.5,7.8 6,11.8 4.7,11.8-3.2,2.3-20.5,9.9-2,-.4-6.5,-13.2-7.6,-12.7 5.4,-4.8 17.6,-12.8zm-207.5,1.2l1.4,-.2 2.8,1.9 19.8,15.6-7.4,12.6-6.1,13-8.9,-3.2-17.8,-8.6 5.8,-12.9zm141.5,-17.4l1.5,.9-.6,1.1-1.4,-.4 .2,-1.5zm-54.3,.8l1.6,.1v1.6h-1.6l-.1,-1.5zm-75,0l-3.4,4.3-3.9,7.6 .4,1.4 1.6,-1.1 6.1,-10.1-.5,-2.1zm142.5,5l1.7,.3-.3,1.6-1.7,-.2 .2,-1.7zm-80.1,.3l1.6,.5-.6,1.8-1.7,-.9 .4,-1.3zm40,6.8l1.8,.6 11.5,11.8 2.8,4.6 1.5,4.2 .4,10.8-2.8,10.1 1,6.7-.6,.2-1.7,-2.6-1.2,-4.3 .2,-19-.8,-3.8-3.1,-6.3-2.9,-3.8-1.4,-.3-1.3,8.1-1.7,3.7-13.6,15.9-4.5,6.7-2.7,7.7-1.3,8.1-1.5,-.6-.8,-2.9-3.2,-6.3-2.6,4.5-8.1,10.2-2.9,6.6 .1,3.5 1.4,3.8 .6,.5 .6,-.9 .5,-7 9.1,-14 1.3,.3 1.1,3.1 3.5,4.6 2,1.4 1.1,-.5 1.9,-14.1 3.1,-7.4 5.7,-8.5 10.7,-11.7 2,-3.2 .9,-3.5 .9,-.6 2.3,5.5-.6,16.4 .8,6.4 1.6,3.7 2.8,3.7 4.3,4 2.9,1.8 2,.1 .6,-1.2-.7,-2.6-.5,-9.2 .3,-2.3 .6,-.2 5.8,8.8 4.4,11 .6,6.9-.6,6.9-2.8,6.6-4.1,5.5-.1,1.1 1.4,.3 1.7,-1.5 2.8,-3.1 2.7,-4.6 2.6,-7.2 .4,-7.8-1.5,-6.9-1.4,-2.9-11,-16.7-1.5,.1-1.9,3.7-1.2,8-.6,.4-.9,-.7 .3,-8.3 5.5,-8.3 1,.2 6.2,11 6.6,8.9 4.6,8.6 1.6,7.5-.3,4.6-1.4,4.7-3,5.5-5.7,6-3.9,2.7-7.5,3.4-.1,-8.1-2.6,-2.9-1.6,-3.2-6.8,-7.8-1.4,-2.3-.3,-3.4-1,-.7-7.2,5.6-2.9,4.3-1.4,3.6-.1,5.6 2.2,8.4-1.3,.4-3.4,-1.6-7.3,-6-1.1,-2.6 .2,-1.8h1l1.1,2.3 5.2,5.3 1.8,.3-1,-7.3 .9,-4.6 1.5,-3.1 6,-7.6 7,-4.3 1.7,1.5 1.1,5.4 2.6,3.5 1.5,.4 .1,-1.8-2.4,-3.8-.8,-5.5-1.2,-1.5-1.8,-.6-7.8,3.6-5.7,5-4.6,7.7-1.2,7.1-1.4,-.4-.8,-3.3-3,-4.4-1.1,.2-2.3,2.4-3.2,4.1v2.4l1.9,-3 3.1,-2.8 1.3,-.5 .4,1-.4,1.6-2,1.3-1.3,3.5 .2,7.1-12.4,-3.6-3.2,-1.5-4.5,-3.5-3.3,-4.5-2,-7 .8,-7.2 3,-5.6 10.9,-14.2 .6,-2.7-.3,-5.2 1.1,-.1 2.7,4.5 1.3,5.7 1.2,1.7 2.5,-10 3,-5.4 4.3,-6 9.5,-9.1 3,-4 1.4,-6.1-2.2,-11.5zm-50.9,.3l1.6,.3v1.7h-1.7l-.1,-1.7zm103.3,-.3l1.4,.3-.2,1.7-1.6,-.3 .2,-1.6zm60.3,2.4l-.3,1.5 3.8,9.2-.8,2.9 1.3,.6 1.8,-.9 .7,-1.7-4.4,-9.5-1.8,-2.1zm-172.3,7l1.4,.8-.9,1.2-1.5,-.8 .9,-1.2zm121.7,.3l1.8,.5-.7,1.8-1.5,-.3 .3,-2zm8.6,11.5l1.4,1.2-1,1.4-1.5,-1.2 .9,-1.3zm-138.6,.2l1.7,.5-.5,1.8-1.7,-.6 .4,-1.6zm-54.4,4.2l27.4,8.7-3,12.6-1.8,16.2-.7,.9-27.1,-2-1.1,-.6 2.2,-19.9 2.6,-13.3zm247.7,-2.6l1.4,-.1 .9,1 1.7,6.7 3,16.3 1.3,9.8-.6,1.5-26.2,3.1-1.5,-.2-.7,-.9-1.3,-11.8-3.4,-16.5 25.3,-8.9zm-245.3,2.3l-.9,1.2-1.5,6.6-.4,4.9 1.1,1.2 3.6,-12.4-.4,-1.2-1.2,-.4zm47.6,6.5l1.8,.2-.3,2.1-1.7,-.3zm150.5,-2l1.6,.2v1.9h-1.7v-2zm50.7,11.3l-.4,1.5 1,8.7-1.1,2.6 2.2,.9 1.4,-1.5-.6,-7.5-2.2,-4.8zm-205,2.8l1.8,.2 .1,1.5-1.6,.5-.5,-1.9zm158.2,-.3l1.5,.3-.3,2-1.5,-.4v-1.7zm-159,13.3l1.7,.6-.4,1.8-1.7,-.4 .3,-1.9zm160.4,-.1l1,-.1 .8,.7-.5,2.1-1.7,-.4 .3,-2.2zm23.1,7.7l27.9,1.8-1.6,12.3-1.6,6.6-.6,.8-.3,-2.2 .8,-6.6-.7,-.9-1.1,.3-1.3,8.7-1.9,4.9 .7,1.1h1.5l1,-3.7 1.1,-.7-.6,5.3-1.5,2.1-22.5,.2-5.4,-.6-.2,-1.4 .9,-1.8 3,-14.9 1.3,-10.1 1,-1.2zm-211.8,.3l6.3,-.1 1.2,.7 1.8,17.8 1.5,7.8 1,1.8-2,1.6h-25.1l-1.9,-1.3-3.6,-17.3-.7,-9.6 1.6,-.9 19.6,-.5zm-18.2,2.5l-1.1,1.5 .3,8.4 1.1,4.3 .9,.9 .9,-1.7-1.2,-10.4 2.9,-2-.9,-.8-2.6,-.2zm48.3,3.8l1.5,1.2-1.1,1.3-1.5,-1 .9,-1.4zm157.9,-.1l1.5,.6-.5,1.7-1.6,-.5 .4,-1.7zm-154,13.8l1.1,1.1-1.3,1.4-1,-1.1 1,-1.4zm150.6,0l1.3,.1v1.4l-1.3,.2-.1,-1.5zm-122.8,9.6l21,.5 4.9,.7 3.5,1.6 7.2,.7 37.4,1.3 24.3,1.6 1,.5-.2,2.8-6,.8-61.4,-.5-5.8,-1.2-19.6,-1.7-9.2,.7-2.6,1.7-2.9,-1-3.8,-3-1.2,-1.8-.2,-2.6 13.3,-1.1zm-34.8,.6l7.4,1.4 5.5,2.9 19.3,15.2 9.5,5.8 13.5,5.7 10.7,2.8 10.1,1.4h12.1l11,-1.5 9.8,-2.5 11.2,-4.6 7.8,-4.4 22.8,-17.9 6.3,-2.9 6.1,-1.1 6,1.1 4.5,2.9 6.7,6.8 6.4,8.2 6,5.8 6.7,3.1 8.3,.3v1l-12.9,22.6-4.7,3-2.5,.2-4.4,-1.3-5.2,-2.8-6.2,-4.5-10.6,-11.9-6.7,-8.6-3.8,-3.6-7,-4h-4.3l-4.3,3.1-1.6,2.5-6.4,31.7-2.7,8.3-3.1,5.9-4.7,5.8-9.5,8.2-6,3.1-10.1,2.5-13.6,.3-8.9,-1.4-10.4,-4.3-10.9,-8.5-4.3,-5.7-4.6,-9-2.8,-9-4.8,-26.2-3,-5.5-2.4,-1.9h-5.5l-7.5,4.4-16.5,19.4-10,8.7-5.8,2.9-3.4,.8-4.7,-.7-2.6,-1.6-12.7,-23.6 5.8,-.1 7.5,-3 4.3,-3.8 12.7,-14.8 5.6,-4.3 7.4,-2.8zm207.6,2.8l1.4,.2 .4,1.3-1.5,6.3-1.2,1-20.5,-.2-5.1,-6.8 1.1,-.9 25.3,-.9zm-251,.6l25.9,.4 .6,1.1-4.6,5.9-2,.6-18.5,-.3-1.4,-2.2-.5,-4 .5,-1.4zm204.9,.2l-6,1.8-4.4,2.4-.6,1.3 5.5,2.1 5.2,3.1 7.8,7.1v-1.6l-2.3,-2.9-9.9,-8.4 2.4,-.5 4.1,2 6.9,6.3 .6,-.9-1.6,-2.6-3.2,-3.1-3.5,-2.1-.4,-1.5 5.2,.9 5.8,4.9 .8,-.5-3.4,-4.4-2.6,-1.9-3.2,-1.3-2.9,-.2zm-160.3,.3l-5.8,2.9-5,5.2 .2,1.4h.8l3,-3.2 4.2,-3 2.9,-.5 1.3,.7-6.5,5.3-4.3,4.7 .6,.9 5.5,-5.5 4.6,-3.2 3.2,-1.9 1.7,.5-.3,1.1-3.2,1.9-4.8,4.5-2.7,3v1.1l8.9,-7 8.3,-4-1,-1.5-7.2,-3.3-4.1,-.1zm-29.9,30.8l-4.9,1.1-3.2,-.2-.7,.9 2.5,2.8 .3,1.8 3.9,6.2 1.5,1.2 2.6,.2 5.2,-1.8 3.7,-3 1.6,-2.2-1,-.2-5.5,3.6-3.5,.8-2.5,-.5-1.3,-1.4 .1,-.9 5.9,-2 1.1,-1.8-.7,-.4-6.9,2-2.8,-1.6-.2,-.5 .7,-.7 4.1,-1.6 .2,-1.8zm219.4,.5l.4,1.3 3.1,1.8 5.2,.1 .8,-1.1-.6,-1.2-4.6,.3-4,-1.3zm-3.8,5l2.2,2.4 3.6,1.2-.4,1.4-2.2,1.4-5.5,-1.3-3.7,-2.8-1.5,-.6-.2,.4 4.6,4.6 2.9,1.6 4.3,.5 3.2,-2.2 3,-4.5 .4,-1.7-1.4,-.5-2.9,1.3-4.1,-.3-2,-.9zm-74.6,3.6l-5.5,.2-1.4,.9 .1,19.6 1.3,1.3 6.6,.1 1.3,-.8-.2,-2.9-4.5,-.7-.8,-3 .8,-1.9 2.8,-.4 1.2,-1.2-.9,-2-3.1,-.2-.8,-1 .4,-4 3.5,-.3 1.2,-.8-.1,-2.1-1.6,-.8zm-64.9,.2l-1.1,1.2 .2,19.9 1.2,.9 6.6,-.1 1.2,-1.1-.6,-2.2-1.2,-.8-2.3,-.1-.7,-1.2v-15.6l-.7,-.7-2.3,-.3zm12.1,.1l-2,1-1.2,2.5v14.1l.6,2.1 1.7,2 3.8,.4 2.3,-1 1.5,-2.3 .1,-14.7-1.8,-3.5-4.7,-.6zm36.9,0l-2.2,.9-1.3,2.6 .1,14.4 .5,2.2 1.4,1.6 4.7,.2 1.7,-.7 1,-1.5 .3,-8.1-1.3,-1.6-2.5,.4 .3,7.2-1,1-1.1,-.6-.4,-13.6 .6,-.9 1.2,.1 1.1,3.4 1.8,.9 1.4,-1.2-.1,-2.9-.5,-2-1.4,-1.4-4,-.4zm-28,.3l-.9,1.5 .4,17.3 2.2,2.7 4.9,.2 2.4,-1.8 .7,-3.1-.3,-15.9-1.6,-1-1.7,1.3-.1,15.6-.5,1.2-1.2,.3-1.1,-1.5-.2,-15.6-.7,-1-2,-.2zm12.4,0l-1.1,.9-.4,2.3 .3,17.9 1.5,.8 1.9,-.8 .1,-6.6 .6,-1.4 2.7,7.4 1.3,1.3 1.5,.2 1.1,-1.5-.3,-19.9-1.7,-.8-1.6,1.1-.1,7-2.9,-7-2.6,-.9zm-20.8,3.5l1.2,.6 .3,1.4-.1,10.7-1.1,1.9-1.1,-.3-.5,-1.3 .2,-10.7 .8,-2.2zm7.5,27.3l-2.5,2.3 .8,3 .6,.6 3.2,-.1 1.5,-3.2-1.3,-1.9-2,-.9zm10.4,.4l-1.4,1.8-2.5,.6 1.3,2.6-.5,2.9 .8,.7 2.6,-.8 3.2,.8 1,-1-.7,-2.3 1.6,-2.9-2.8,-.6-1.2,-1.8-1.1,-.1zm10.7,.2l-1.8,.6-.6,1.1 .6,3.2 1.2,.9 3.1,-.6 .9,-3.5-.3,-.9-2.9,-.8z"/><path class="letters" fill-rule="evenodd" d="m31.2,64.6h-28.8l-1.7,.8-.7,1.2v142.7l.7,1.2 2.6,.7 37.7,-.1 10.1,-1.5 8.9,-3.8 7.5,-7 4.5,-8.5 1.4,-6.7 .6,-8.9-.7,-21.8-1.6,-5.9-2.9,-5.7-4.4,-4.4-5.5,-3.7 6.6,-5.8 3.5,-5.7 2.5,-11.3 .3,-15-3,-13-4.4,-7.2-4.6,-4.5-5.1,-3-7.6,-2.2-15.6,-.9zm77,0l-11.6,.1-1.2,.7-.7,1.8v141.8l.5,1.3 2.6,.9 18.4,.1 3.5,-1.2 .5,-3.7 .1,-138.1-.7,-2.6-1.3,-1-9.8,-.1zm149.6,0h-16.8l-2,1-.6,1.6 .1,140.1 .4,2.8 3,1.2 53,-.1 3.2,-.7 .9,-1.5 .1,-19-1.6,-2.5-31.7,-.3-1.2,-.7-.2,-118.8-.3,-2-.9,-.8-5.1,-.3zm59.6,0l-1.4,.8-.6,3.5 .1,140.4 1.9,2 20.8,-.1 2.3,-.9 .5,-1.6-.1,-142.1-.6,-1.4-1.3,-.7h-21.3zm339.9,.1l-1.8,.8-.8,2.1-.1,17.3 .6,1.9 2.4,1 19.3,-.3 1.5,1.4 .1,120.8 1,1 2.6,.6h18.4l2.9,-1.3 .3,-3.5v-117.6l1.1,-1.3 20.5,.3 1.9,-.7 .9,-2.3-.3,-18.5-.8,-1.3-2,-.5h-67.4zm97.1,.1l-9.9,.3-1.3,1.7-.2,2.9-.1,136 .6,4.6 3.1,1h56.8l2.6,-1 .6,-3.7 .1,-16.1-1.6,-2.8-35.4,-.3-1.2,-.4-.2,-.9 .2,-38.6 1.2,-.5 27.4,-.4 1.1,-2.3 .1,-17-.7,-1.8-2.3,-1.5-25.3,.1-1.6,-.5v-34.9l1.3,-.8h30.8l4.3,-.6 1.2,-2.3-.3,-19.1-.9,-.9-3.1,-.3-47,.1zm74.4,0l-2,.8-.7,3.8v140.7l3.2,1.4 18.8,-.1 3.2,-1.1 .4,-42.9 6,-12.7 1.3,-.9 20.1,56.3 2.4,1.3 22.2,.1 2.3,-1.2-.2,-3.1-20.9,-54.8-8.9,-25.4 8.8,-19.8 16.8,-34.1 2,-5.2v-2.3l-1.3,-.8-7,-.1h-15.2l-2.1,.8-25.9,55.3-.6,-1.5-.1,-53.4-1,-.9-2.6,-.3-18.8,.1zm116.5,0l-3.2,.5-1.3,3.8-23.2,124.8-2.5,15.6 .8,1.3 3.2,.7 17.8,-.2 2.3,-.8 4.7,-24.4 1.1,-.9 4.9,-.2 19,.3 3.8,22.2 1.4,3.4 2.3,.6 18.8,-.1 2.3,-.9 .5,-1-7.2,-44.7-18.1,-98.6-.9,-1.2-2.6,-.3-23.6,.1zm-801.1,.2l-1.6,2.1-.3,2.6 .6,140.1 .7,1 2.6,.7 35.8,-.2 9.2,-1 11,-4.2 6.9,-5.9 4.5,-7.4 2.8,-9.8 .4,-24-1.6,-9.8-1.7,-4.3-2.9,-4.6-3.3,-3.1-5.9,-3.8 5.1,-3.7 2.7,-3.2 1.8,-2.9 2.1,-6.4 1,-9.2-.2,-12.1-.2,-4.6-1.5,-6.9-2.9,-6.1-4.5,-5.8-6.4,-4.2-4.6,-1.7-12.1,-1.8-37.2,.1zm-120.2,22.9h8.7l4.6,.7 2.7,1.6 2.7,4.5 .8,6.5-.5,13.6-1.4,4.3-3.8,3.7-7.7,1.6-5.8,-.2-1.3,-.8 .1,-34 .6,-1.3zm145.3,-.2l12.7,.5 3.5,1.8 2,2.6 1.4,6.4-.3,15.3-1,4-1.4,2.3-1.9,1.7-2.9,1.2-11.2,.5-2,-.8v-34l.8,-1.4zm787,17.5h.5l.6,1.8 7.3,54.4-1,.7-14.7,.2-1.3,-1.2 8.4,-55.6zm-931.2,41.2l13.8,.6 4.4,2.9 1.9,3.2 .9,6 .1,15.3-.7,5.8-3.1,4.4-4.6,2.1-12.4,.3-1.5,-.8-.1,-38.3 1,-1.4zm144.8,-.1l10.6,-.1 4.6,.7 3.2,1.7 2.8,4.4 .8,5.4-.1,17.6-.6,3.8-1.3,2.6-3.9,3-6.1,1.4h-9.5l-1.4,-.7v-38.3l.8,-1.4z"/></svg></h1>
 <p class="tagline">Кальян у камина. Борщ, драники и мангал — единственная белорусская кухня среди лаунжей Тбилиси.</p>
 <p class="meta"><span class="addr">ул. Александра Абашели, 1, Тбилиси</span><span class="hrs">Вс–Чт до 02:00 · Пт–Сб до 03:00</span><span class="rate">4.8<span class="sym">★ · </span>622 отзыва в Google</span></p>
 <div class="cta">
 <a class="btn" href="https://t.me/Biblio_lounge_bot">Забронировать стол — Telegram</a>
 <a class="linklight" href="tel:+995551766060">или позвоните: +995 551 76 60 60</a>
 </div>
-<figure class="arch-fig"><div class="arch"><svg class="hero-draw" viewBox="0 0 320 336" aria-hidden="true">
-<g fill="none" stroke="#C2B49D" stroke-width="2.5" stroke-linecap="round">
-<line x1="22" y1="50" x2="298" y2="50"/>
-<rect x="34" y="18" width="13" height="32"/>
-<rect x="51" y="23" width="10" height="27"/>
-<rect x="65" y="14" width="15" height="36"/>
-<path d="M84 50 L98 18 L109 21 L97 50 Z"/>
-<rect x="116" y="21" width="12" height="29"/>
-<rect x="132" y="16" width="14" height="34"/>
-<rect x="150" y="25" width="10" height="25"/>
-<rect x="164" y="18" width="13" height="32"/>
-<path d="M186 50 L186 28 Q197 19 208 28 L208 50"/>
-<rect x="216" y="21" width="12" height="29"/>
-<rect x="232" y="14" width="15" height="36"/>
-<rect x="251" y="23" width="11" height="27"/>
-<rect x="266" y="17" width="13" height="33"/>
-<circle cx="160" cy="210" r="92"/>
-<circle cx="166" cy="214" r="74"/>
-<line x1="252.0" y1="210.0" x2="240.0" y2="214.0"/>
-<line x1="244.0" y1="247.4" x2="233.6" y2="244.1"/>
-<line x1="221.6" y1="278.4" x2="215.5" y2="269.0"/>
-<line x1="188.4" y1="297.5" x2="188.9" y2="284.4"/>
-<line x1="150.4" y1="301.5" x2="158.3" y2="287.6"/>
-<line x1="114.0" y1="289.7" x2="129.0" y2="278.1"/>
-<line x1="85.6" y1="264.1" x2="106.1" y2="257.5"/>
-<line x1="70.0" y1="229.1" x2="93.6" y2="229.4"/>
-<line x1="70.0" y1="190.9" x2="93.6" y2="198.6"/>
-<line x1="85.6" y1="155.9" x2="106.1" y2="170.5"/>
-<line x1="114.0" y1="130.3" x2="129.0" y2="149.9"/>
-<line x1="150.4" y1="118.5" x2="158.3" y2="140.4"/>
-<line x1="188.4" y1="122.5" x2="188.9" y2="143.6"/>
-<line x1="221.6" y1="141.6" x2="215.5" y2="159.0"/>
-<line x1="244.0" y1="172.6" x2="233.6" y2="183.9"/>
-<path d="M118 268 Q166 284 214 268"/>
-<path d="M132 262 L200 252"/>
-<path d="M136 250 L196 262"/>
-<circle cx="132" cy="262" r="3"/>
-<circle cx="136" cy="250" r="3"/>
-<line x1="18" y1="304" x2="302" y2="304"/>
-<rect x="20" y="286" width="44" height="18" rx="2"/>
-<rect x="24" y="268" width="38" height="17" rx="2"/>
-<rect x="21" y="251" width="40" height="16" rx="2"/>
-<rect x="258" y="284" width="42" height="20" rx="2"/>
-<path d="M264 284 L276 248 L288 251 L277 284 Z"/>
-</g>
-<path fill="none" stroke="#C75B54" stroke-width="3" stroke-linejoin="round" d="M166 252 C150 246 143 233 147 220 C150 210 158 203 156 190 C164 197 168 206 167 214 C173 208 175 199 172 191 C181 201 185 215 182 228 C179 241 174 249 166 252 Z"/>
-<path fill="#C75B54" d="M166 240 C159 236 156 229 159 223 C161 218 164 214 163 208 C168 213 170 218 169 223 C172 220 173 216 172 212 C176 218 177 226 174 232 C172 237 170 239 166 240 Z"/>
-</svg></div>
-<figcaption>Полки с книгами и круглый кирпичный очаг — тот самый, что в логотипе выше.</figcaption></figure>
 </div>
 </section>
 <section class="sec">
 <div class="wrap">
 <p class="label">Зал</p>
-<h2 class="title">Фрески, полки и круглый кирпичный очаг</h2>
-<figure class="ph"><div class="mat"><img src="../img/fireplace-hearth-wide-900.jpg" alt="" width="900" height="525" loading="lazy"></div>
-<figcaption>Очаг декабрьским вечером — свеча, ананас, накрытый стол. Кирпичное кольцо — то же, что в логотипе.</figcaption></figure>
+<h2 class="title">Очаг, фрески и настольные игры</h2>
+<figure class="ph arched"><div class="mat"><img src="../img/hearth-table-800.jpg" alt="" width="800" height="800" loading="lazy"></div>
+<figcaption>Очаг в глубине зала — стол, накрытый перед ним в декабре.</figcaption></figure>
+<figure class="ph"><div class="mat"><img src="../img/mural-readers-1100.jpg" alt="" width="1100" height="643" loading="lazy"></div>
+<figcaption>Читальная стена: расписанные фигуры над настоящими полками, справа стоит кальян.</figcaption></figure>
 <div class="grid2">
 <figure class="ph"><div class="mat"><img src="../img/borscht-croutons-800.jpg" alt="" width="800" height="800" loading="lazy"></div>
 <figcaption>Борщ с гренками и ложкой сметаны — в меню ниже 16&nbsp;<span class="lari">₾</span>.</figcaption></figure>
 <figure class="ph"><div class="mat"><img src="../img/games-shelf-800.jpg" alt="" width="800" height="800" loading="lazy"></div>
 <figcaption>Настольные игры живут у окна — от Монополии до Диксита; берите к столу.</figcaption></figure>
 </div>
-<figure class="ph"><div class="mat"><svg viewBox="0 0 320 200" aria-hidden="true" fill="none" stroke="#8F2430" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-<line x1="118" y1="4" x2="118" y2="20"/>
-<path d="M107 20 L129 20 L137 38 L99 38 Z"/>
-<path d="M108 46 Q118 54 128 46"/>
-<path d="M12 40 Q18 24 36 28 Q44 14 62 20 Q78 12 84 28 Q98 30 90 44"/>
-<path d="M226 34 Q234 20 250 24 Q260 12 276 20 Q292 16 296 32 Q306 36 298 46"/>
-<circle cx="118" cy="76" r="11"/>
-<path d="M107 70 Q118 60 129 70"/>
-<path d="M100 100 Q118 88 136 100"/>
-<line x1="100" y1="100" x2="96" y2="122"/>
-<line x1="136" y1="100" x2="140" y2="122"/>
-<path d="M96 122 L118 116 L140 122"/>
-<path d="M96 122 L118 128 L140 122"/>
-<line x1="118" y1="116" x2="118" y2="132"/>
-<path d="M90 160 Q100 142 118 140 Q136 142 146 160"/>
-<path d="M90 160 Q118 174 146 160"/>
-<circle cx="254" cy="82" r="10"/>
-<path d="M263 76 Q272 90 268 106"/>
-<path d="M262 92 Q270 118 266 148 L266 170"/>
-<path d="M222 170 L240 124"/>
-<path d="M240 124 L262 146"/>
-<path d="M256 100 Q234 114 230 144"/>
-<line x1="216" y1="170" x2="240" y2="170"/>
-<circle cx="184" cy="158" r="10"/>
-<line x1="184" y1="148" x2="184" y2="118"/>
-<path d="M177 118 L191 118 L188 108 L180 108 Z"/>
-<path d="M176 162 Q162 168 158 178"/>
-<line x1="16" y1="184" x2="304" y2="184"/>
-</svg></div>
-<figcaption>Фреска над диванами, перерисованная: одна читает под лампой, другая обняла колени, между ними — кальян.</figcaption></figure>
 </div>
 </section>
 <section class="sec menu">
@@ -230,7 +142,6 @@ img{display:block;max-width:100%}
 <p class="row"><span class="nm">Кальян классический</span><span class="dots"></span><span class="pr">60&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Кальян на грейпфруте</span><span class="dots"></span><span class="pr">90&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Кальян на вине</span><span class="dots"></span><span class="pr">90&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Кальян дабл ананас</span><span class="dots"></span><span class="pr">190&nbsp;<span class="lari">₾</span></span></p></div><div class="mcard"><h3>Белорусская кухня</h3>
 <p class="row"><span class="nm">Борщ</span><span class="dots"></span><span class="pr">16&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Драники с беконом и сметаной</span><span class="dots"></span><span class="pr">19&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Шашлык из свинины(шея)</span><span class="dots"></span><span class="pr">28&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Люля кебаб(говядина)</span><span class="dots"></span><span class="pr">29&nbsp;<span class="lari">₾</span></span></p></div><div class="mcard"><h3>Бар</h3>
 <p class="row"><span class="nm">Натахтари draft</span><span class="dots"></span><span class="pr">8&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Глинтвейн красный</span><span class="dots"></span><span class="pr">15&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Gin&amp;Tonic</span><span class="dots"></span><span class="pr">16&nbsp;<span class="lari">₾</span></span></p><p class="row"><span class="nm">Чай &quot;Библиотека&quot;</span><span class="dots"></span><span class="pr">21&nbsp;<span class="lari">₾</span></span></p></div>
-<p class="mnote">Названия — как в меню заведения: некоторые есть только на одном языке.</p>
 <a class="mlink" href="https://lounge-biblioteka.eat-me.online">Полное меню с актуальными ценами →</a>
 </div>
 </section>

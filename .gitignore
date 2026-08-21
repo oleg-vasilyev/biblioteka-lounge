@@ -3,3 +3,4 @@ reports/
 design/claude-design/rev/
 design/claude-design/harness.html
 design/claude-design/upload/
+__pycache__/

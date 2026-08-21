@@ -20,13 +20,11 @@ const mark = (value: unknown): string => {
 vi.mock("#shared/html/html.ts", () => ({
   html: (strings: TemplateStringsArray, ...values: unknown[]) =>
     strings
-      .map((part, index) => (index < values.length ? part + mark(values[index]) : part))
+      .map((part, index) =>
+        index < values.length ? part + mark(values[index]) : part,
+      )
       .join(""),
   raw: (trusted: string) => ({ trusted }),
-}));
-
-vi.mock("#atmosphere/render/mural-drawing.ts", () => ({
-  muralDrawing: () => ({ trusted: "«mural-drawing»" }),
 }));
 
 vi.mock("#shared/price/price-tag.ts", () => ({
@@ -36,17 +34,17 @@ vi.mock("#shared/price/price-tag.ts", () => ({
 describe("atmosphere section", () => {
   it("reaches the images from the page's own directory, one step up on a language page", () => {
     expect(renderAtmosphereSection(copyIn("en"), "", 16)).toContain(
-      'src="[e:img/fireplace-hearth-wide-900.jpg]"',
+      'src="[e:img/mural-readers-1100.jpg]"',
     );
     expect(renderAtmosphereSection(copyIn("ka"), "../", 16)).toContain(
-      'src="[e:../img/fireplace-hearth-wide-900.jpg]"',
+      'src="[e:../img/mural-readers-1100.jpg]"',
     );
   });
 
   it("declares each photo's own pixel size, so the page never reflows around it", () => {
     const page = renderAtmosphereSection(copyIn("en"), "", 16);
 
-    expect(page).toContain('width="900" height="525" loading="lazy"');
+    expect(page).toContain('width="1100" height="643" loading="lazy"');
     expect(page).toContain('width="800" height="800" loading="lazy"');
   });
 
@@ -66,10 +64,33 @@ describe("atmosphere section", () => {
     );
   });
 
-  it("draws the mural rather than showing the soft photograph it replaced", () => {
+  it("shows the mural as it was photographed, not as a drawing standing in for it", () => {
     const page = renderAtmosphereSection(copyIn("en"), "", 16);
 
-    expect(page).toContain('<div class="mat">«mural-drawing»</div>');
-    expect(page).not.toContain("mural-readers");
+    expect(page).toContain(
+      '<div class="mat"><img src="[e:img/mural-readers-1100.jpg]" alt="" width="1100" height="643" loading="lazy"></div>',
+    );
+    expect(page).not.toContain("<svg");
+  });
+
+  it("opens on the hearth, cut to an arch, and keeps every frame below the fold lazy", () => {
+    const page = renderAtmosphereSection(copyIn("en"), "", 16);
+
+    expect(page).toContain(
+      '<figure class="[e:ph arched]"><div class="mat"><img src="[e:img/hearth-table-800.jpg]"',
+    );
+    expect(page.indexOf("hearth-table")).toBeLessThan(
+      page.indexOf("mural-readers"),
+    );
+    expect(page.match(/loading="lazy"/g)).toHaveLength(4);
+  });
+
+  it("captions the hearth by what is in the frame, pointing at nothing else on the page", () => {
+    const page = renderAtmosphereSection(copyIn("ru"), "", 16);
+
+    expect(page).toContain(
+      "<figcaption>[e:Очаг в глубине зала — стол, накрытый перед ним в декабре.]</figcaption>",
+    );
+    expect(page).not.toContain("логотип");
   });
 });

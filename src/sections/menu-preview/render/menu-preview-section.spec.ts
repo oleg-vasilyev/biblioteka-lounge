@@ -36,10 +36,6 @@ vi.mock("#shared/price/price-tag.ts", () => ({
   renderPriceTag: (amount: number) => ({ trusted: `«price:${amount}»` }),
 }));
 
-vi.mock("#menu-preview/render/foreign-script.ts", () => ({
-  usesForeignScript: (name: string) => name.startsWith("!"),
-}));
-
 const snapshot: MenuSnapshot = {
   groups: [
     { id: "hookah", items: [{ name: "Classic Hookah", price: 60 }] },
@@ -52,56 +48,56 @@ const snapshot: MenuSnapshot = {
 
 describe("menu preview section", () => {
   it("heads each card with the group name from the copy table, in scroll order", () => {
-    const page = renderMenuPreviewSection("en", copyIn("en"), snapshot);
+    const page = renderMenuPreviewSection(copyIn("en"), snapshot);
 
     expect(page.indexOf("[e:Hookah]")).toBeLessThan(page.indexOf("[e:The Belarusian kitchen]"));
     expect(page.indexOf("[e:The Belarusian kitchen]")).toBeLessThan(page.indexOf("[e:The bar]"));
   });
 
   it("prints the price through the price tag, never as a number in the sentence", () => {
-    expect(renderMenuPreviewSection("en", copyIn("en"), snapshot)).toContain(
+    expect(renderMenuPreviewSection(copyIn("en"), snapshot)).toContain(
       '<span class="pr">«price:60»</span>',
     );
   });
 
   it("dates the snapshot from the data, wrapped in each language's own sentence", () => {
-    expect(renderMenuPreviewSection("ru", copyIn("ru"), snapshot)).toContain(
+    expect(renderMenuPreviewSection(copyIn("ru"), snapshot)).toContain(
       '<p class="msnap">[e:Снимок от ][e:«date:2026-08-20»][e:\u00a0— цены в лари]</p>',
     );
-    expect(renderMenuPreviewSection("en", copyIn("en"), snapshot)).toContain(
+    expect(renderMenuPreviewSection(copyIn("en"), snapshot)).toContain(
       '<p class="msnap">[e:Snapshot of ][e:«date:2026-08-20»][e:\u00a0— prices in lari]</p>',
     );
   });
 
-  it("marks a name written in a script this page does not load, and leaves the rest alone", () => {
-    const page = renderMenuPreviewSection("en", copyIn("en"), {
+  it("gives every name the same class, because none is left in a script the page cannot set", () => {
+    const page = renderMenuPreviewSection(copyIn("ka"), {
       ...snapshot,
       groups: [
         {
           id: "hookah",
           items: [
-            { name: "!Кальян дабл ананас", price: 190 },
-            { name: "Classic Hookah", price: 60 },
+            { name: "ჩილიმი ორმაგ ანანასზე", price: 190 },
+            { name: "Gin&Tonic", price: 16 },
           ],
         },
       ],
     });
 
-    expect(page).toContain('<span class="[e:nm nm-x]">[e:!Кальян дабл ананас]</span>');
-    expect(page).toContain('<span class="[e:nm]">[e:Classic Hookah]</span>');
+    expect(page).toContain('<span class="nm">[e:ჩილიმი ორმაგ ანანასზე]</span>');
+    expect(page).toContain('<span class="nm">[e:Gin&Tonic]</span>');
   });
 
   it("routes a dish name carrying markup characters through the escaper", () => {
-    const page = renderMenuPreviewSection("en", copyIn("en"), {
+    const page = renderMenuPreviewSection(copyIn("en"), {
       ...snapshot,
       groups: [{ id: "bar", items: [{ name: 'Gin & "Tonic" <house>', price: 16 }] }],
     });
 
-    expect(page).toContain('<span class="[e:nm]">[e:Gin & "Tonic" <house>]</span>');
+    expect(page).toContain('<span class="nm">[e:Gin & "Tonic" <house>]</span>');
   });
 
   it("survives a group the venue emptied, without printing a headless card", () => {
-    const page = renderMenuPreviewSection("en", copyIn("en"), {
+    const page = renderMenuPreviewSection(copyIn("en"), {
       ...snapshot,
       groups: [{ id: "kitchen", items: [] }],
     });
@@ -111,7 +107,7 @@ describe("menu preview section", () => {
   });
 
   it("links the live menu at the address the snapshot was taken from", () => {
-    expect(renderMenuPreviewSection("ka", copyIn("ka"), snapshot)).toContain(
+    expect(renderMenuPreviewSection(copyIn("ka"), snapshot)).toContain(
       '<a class="mlink" href="[e:https://lounge-biblioteka.eat-me.online]">[e:სრული მენიუ მიმდინარე ფასებით →]</a>',
     );
   });

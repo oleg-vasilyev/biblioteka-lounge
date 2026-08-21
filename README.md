@@ -36,7 +36,8 @@ src/shared/     html assembly, locale plumbing, the page shell
 scripts/        the build and every other thing that touches a file
 data/           committed data snapshots (the menu, the venue's own facts)
 assets/         what the build copies verbatim: photos, the icon, robots.txt
-design/         the approved mockups and the design system they came from
+design/         the approved mockups, the photo inbox, and the Python that
+                cuts every shipped frame and traces the venue's logo
 docs/           the built site — generated, committed, served
 ```
 

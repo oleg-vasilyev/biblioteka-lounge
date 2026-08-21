@@ -9,6 +9,5 @@ export const copy: Copy = {
   groupHookah: "ჩილიმი",
   groupKitchen: "ბელარუსული სამზარეულო",
   groupBar: "ბარი",
-  note: "სახელები ისეა, როგორც მენიუშია\u00a0\u2014 ზოგი მხოლოდ ერთ ენაზეა.",
   fullMenuLink: "სრული მენიუ მიმდინარე ფასებით →",
 };

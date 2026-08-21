@@ -28,6 +28,47 @@ const project = {
         };
       },
     },
+    // Copy tables spell invisible and lookalike punctuation as \uXXXX escapes,
+    // and every em dash takes a non-breaking space before it. Typed straight
+    // into a file both facts are invisible, so an editor that normalises one
+    // NBSP into a space breaks a line nobody can see is broken.
+    "escaped-punctuation": {
+      meta: {
+        type: "problem",
+        schema: [],
+        messages: {
+          raw: "Write {{name}} as \\u{{code}}, so the source shows what the page will hold.",
+          loose: "An em dash in copy takes a non-breaking space before it: \\u00a0\\u2014.",
+        },
+      },
+      create(context) {
+        const NAMED = [
+          [" ", "a non-breaking space", "00a0"],
+          ["–", "an en dash", "2013"],
+          ["—", "an em dash", "2014"],
+          ["·", "a middle dot", "00b7"],
+        ];
+        return {
+          Literal(node) {
+            if (typeof node.value !== "string") {
+              return;
+            }
+            const written = context.sourceCode.getText(node);
+            for (const [character, name, code] of NAMED) {
+              if (written.includes(character)) {
+                context.report({ node, messageId: "raw", data: { name, code } });
+                return;
+              }
+            }
+            const dash = node.value.indexOf("\u2014");
+
+            if (dash > 0 && node.value[dash - 1] !== "\u00a0") {
+              context.report({ node, messageId: "loose" });
+            }
+          },
+        };
+      },
+    },
     // A number must be *named*: it may appear in a `const NAME = …` initializer
     // and nowhere else. 0 and 1 are exempt — an index or a length is not magic.
     "named-numbers": {
@@ -246,6 +287,12 @@ export default [
     rules: {
       "no-console": "error",
       "project/named-numbers": "error",
+    },
+  },
+  {
+    files: ["src/**/copy.*.ts"],
+    rules: {
+      "project/escaped-punctuation": "error",
     },
   },
   {

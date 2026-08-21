@@ -9,6 +9,5 @@ export const copy: Copy = {
   groupHookah: "Кальян",
   groupKitchen: "Белорусская кухня",
   groupBar: "Бар",
-  note: "Названия\u00a0\u2014 как в меню заведения: некоторые есть только на одном языке.",
   fullMenuLink: "Полное меню с актуальными ценами →",
 };
